@@ -1,0 +1,1219 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Computational Python &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'interfaces/talk';</script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">My sample book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Lecture slides for Computational Python
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Finterfaces/talk.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/interfaces/talk.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Computational Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interfacing-with-python">Interfacing with Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#olav-vahtras">Olav Vahtras</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Interfacing with Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interfacing-with-other-codes">Interfacing with other codes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interfacing-with-other-languages">Interfacing with other languages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Interfacing with other codes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-files-a-manual-example">Text files: a manual example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-files-same-example-automated">Text files: same example automated</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-files">Binary files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-fortran-differences">C/Fortran differences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Summary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-files-with-python">Binary files with Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-a-fortran-record">reading a Fortran record</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiled-modules-fortran-and-c">Compiled modules: Fortran and C</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fortran-functions">Fortran functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fortran-subroutines">Fortran subroutines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-functions">C-functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ctypes-module">The ctypes module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ctypes">ctypes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cython">cython</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Summary</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="computational-python">
+<h1>Computational Python<a class="headerlink" href="#computational-python" title="Link to this heading">#</a></h1>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<section id="interfacing-with-python">
+<h2>Interfacing with Python<a class="headerlink" href="#interfacing-with-python" title="Link to this heading">#</a></h2>
+<section id="olav-vahtras">
+<h3>Olav Vahtras<a class="headerlink" href="#olav-vahtras" title="Link to this heading">#</a></h3>
+<hr class="docutils" />
+<p>layout: false</p>
+</section>
+</section>
+<section id="id1">
+<h2>Interfacing with Python<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="interfacing-with-other-codes">
+<h3>Interfacing with other codes<a class="headerlink" href="#interfacing-with-other-codes" title="Link to this heading">#</a></h3>
+<font color="red">
+* Text files
+</font>
+  - Automatic generation of input files (parameter studies)
+  - Getting data from output file
+* Binary files
+  - Getting data from binary files written by C and Fortran programs
+</section>
+<section id="interfacing-with-other-languages">
+<h3>Interfacing with other languages<a class="headerlink" href="#interfacing-with-other-languages" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Calling Fortran from Python</p></li>
+<li><p>Calling C from Python</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id2">
+<h2>Interfacing with other codes<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="text-files-a-manual-example">
+<h3>Text files: a manual example<a class="headerlink" href="#text-files-a-manual-example" title="Link to this heading">#</a></h3>
+<p>Use a program (here Dalton) which solves the time-independent Schrödinger equation</p>
+<div class="math notranslate nohighlight">
+\[H_0\Psi = E_0\Psi\]</div>
+<p>and estimate the energy change due to an external electric field.</p>
+<ul class="simple">
+<li><p>The Hamiltonian has a large part and a small perturbation</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ H=H_0 + \epsilon z \]</div>
+<div class="math notranslate nohighlight">
+\[ E=E[\epsilon] = \langle H\rangle \]</div>
+<ul class="simple">
+<li><p>Calculate the change using the finite difference approximation</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \frac{dE}{d\epsilon} = \frac{E[\epsilon/2]+E[-\epsilon/2]}{\epsilon}\]</div>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Two input files</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="o">**</span><span class="n">DALTON</span>                         <span class="o">**</span><span class="n">DALTON</span>
+    <span class="o">.</span><span class="n">RUN</span> <span class="n">WAVE</span> <span class="n">FUNCTION</span>               <span class="o">.</span><span class="n">RUN</span> <span class="n">WAVE</span> <span class="n">FUNCTION</span>
+    <span class="o">**</span><span class="n">INTEGRAL</span>                       <span class="o">**</span><span class="n">INTEGRAL</span>
+    <span class="o">.</span><span class="n">DIPLEN</span>                          <span class="o">.</span><span class="n">DIPLEN</span>
+    <span class="o">*</span><span class="n">WAVE</span> <span class="n">FUNCTION</span>                   <span class="o">*</span><span class="n">WAVE</span> <span class="n">FUNCTION</span>
+    <span class="o">.</span><span class="n">HF</span>                              <span class="o">.</span><span class="n">HF</span>
+    <span class="o">*</span><span class="n">HAMILTONIAN</span>                     <span class="o">*</span><span class="n">HAMILTONIAN</span>
+    <span class="o">.</span><span class="n">FIELD</span>                           <span class="o">.</span><span class="n">FIELD</span>
+    <span class="mf">.0005</span>                            <span class="o">-</span><span class="mf">0.0005</span>
+    <span class="n">ZDIPLEN</span>                          <span class="n">ZDIPLEN</span>
+    <span class="o">**</span><span class="n">END</span> <span class="n">OF</span> <span class="n">INPUT</span>                   <span class="o">**</span><span class="n">END</span> <span class="n">OF</span> <span class="n">INPUT</span>
+</pre></div>
+</div>
+<p>–</p>
+<ul class="simple">
+<li><p>Run the two calculations</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ grep Final.*energy *out
+hf-_h2o.out:   @ Final HF energy:              -74.965858996902
+hf-+h2o.out:   @ Final HF energy:              -74.965455645567
+</pre></div>
+</div>
+<p>–</p>
+<ul class="simple">
+<li><p>Calculate the finite difference energy (copy and paste)</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="o">-</span><span class="mf">74.965455645567</span><span class="o">-</span><span class="p">(</span><span class="o">-</span><span class="mf">74.965858996902</span><span class="p">))</span><span class="o">/</span><span class="mf">0.001</span>
+<span class="go">0.40335133499525</span>
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="text-files-same-example-automated">
+<h3>Text files: same example automated<a class="headerlink" href="#text-files-same-example-automated" title="Link to this heading">#</a></h3>
+<p>Set up a Python function that</p>
+<ul class="simple">
+<li><p>creates input</p></li>
+<li><p>executes the program</p></li>
+<li><p>collects output</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Parameterized input file</p></li>
+</ul>
+<p>Set up the input file as a triple quoted Python string.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dalton_input</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="gp">... </span><span class="s2">**DALTON</span>
+<span class="gp">... </span><span class="s2">.RUN WAVE FUNCTION</span>
+<span class="gp">... </span><span class="s2">**WAVE FUNCTION</span>
+<span class="gp">... </span><span class="s2">.HF</span>
+<span class="gp">... </span><span class="s2">*HAMILTONIAN</span>
+<span class="gp">... </span><span class="s2">.FIELD</span>
+<span class="gp">... </span><span class="si">{}</span>
+<span class="gp">... </span><span class="s2">ZDIPLEN</span>
+<span class="gp">... </span><span class="s2">**END OF INPUT</span>
+<span class="gp">... </span><span class="s2">&quot;&quot;&quot;</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>This is a template that can generate input files for different fields strengths</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dalton_input</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>  
+<span class="gp">...</span>
+<span class="go">.FIELD</span>
+<span class="go">1.0</span>
+<span class="go">ZDIPLEN</span>
+<span class="go">...</span>
+
+</pre></div>
+</div>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>A single function to do it all</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="k">def</span> <span class="nf">write_input</span><span class="p">(</span><span class="n">field</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;hf</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s1">.dal&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dalton_input</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">field</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">run_program</span><span class="p">(</span><span class="n">field</span><span class="p">):</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;dalton&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;hf</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;h2o&#39;</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">fetch_output</span><span class="p">(</span><span class="n">field</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;hf</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s1">_h2o.out&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;Final HF energy&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="n">energy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                <span class="k">return</span> <span class="n">energy</span>
+
+<span class="k">def</span> <span class="nf">energy</span><span class="p">(</span><span class="n">field</span><span class="p">):</span>
+    <span class="n">write_input</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+    <span class="n">run_program</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fetch_output</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>The finite difference derivative</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gradient</span><span class="p">(</span><span class="n">epsilon</span><span class="o">=</span><span class="mf">0.001</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">energy</span><span class="p">(</span><span class="n">epsilon</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">energy</span><span class="p">(</span><span class="o">-</span><span class="n">epsilon</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="n">epsilon</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">finite_difference</span> <span class="kn">import</span> <span class="n">gradient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">gradient</span><span class="p">(),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">0.403</span>
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The preceding examples illustrates the use of parameter studies</p></li>
+<li><p>Input-file is set up as a triplet quoted string with formating code</p></li>
+<li><p>Easy to set up input, execute and fetch output</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="binary-files">
+<h3>Binary files<a class="headerlink" href="#binary-files" title="Link to this heading">#</a></h3>
+<p>In order to read data from a binary file written by a C- or Fortran program special tools are</p>
+<ul class="simple">
+<li><p>Portability issues</p></li>
+<li><p>Little endian/big endian</p></li>
+<li><p>Compiler differences</p></li>
+<li><p>C/Fortran differences</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="c-fortran-differences">
+<h3>C/Fortran differences<a class="headerlink" href="#c-fortran-differences" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># a.c                       |  ! a.f90</span>
+<span class="c1">#include &lt;stdio.h&gt;          |  double precision :: pi = 3.1415927d0</span>
+<span class="n">main</span><span class="p">()</span> <span class="p">{</span>                    <span class="o">|</span>  <span class="nb">open</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;ffile&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;unformatted&#39;</span><span class="p">)</span>
+<span class="n">FILE</span> <span class="o">*</span><span class="n">fp</span><span class="p">;</span>                   <span class="o">|</span>  <span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">pi</span>
+<span class="n">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.1415927</span><span class="p">;</span>      <span class="o">|</span>  <span class="n">close</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fp</span><span class="o">=</span><span class="n">fopen</span><span class="p">(</span><span class="s2">&quot;cfile&quot;</span><span class="p">,</span><span class="s2">&quot;wb&quot;</span><span class="p">);</span>     <span class="o">|</span>  <span class="n">end</span>
+<span class="n">fwrite</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pi</span><span class="p">,</span><span class="n">sizeof</span><span class="p">(</span><span class="n">pi</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">fp</span><span class="p">);</span><span class="o">|</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>                 <span class="o">|</span>
+<span class="p">}</span>                           <span class="o">|</span>
+</pre></div>
+</div>
+<!--
+>>> with open("a.c", "w") as csource:
+...     csource.write("""\
+... #include <stdio.h>
+... void main() {                    
+... FILE *fp;                   
+... double pi = 3.1415927;      
+... fp=fopen("cfile","wb");     
+... fwrite(&pi,sizeof(pi),1,fp);
+... fclose(fp);                 
+... }"""
+...     )
+199
+>>> with open("a.f90", "w") as fsource:
+...    fsource.write("""\
+... double precision :: pi = 3.1415927d0
+... open(1,file='ffile',form='unformatted')
+... write(1) pi
+... close(1)
+... end
+... """
+... )
+102
+>>> import subprocess
+>>> _ = subprocess.call('gcc a.c -o ac.x && ./ac.x && rm a.c', shell=True)
+>>> _ = subprocess.call('gfortran a.f90 -o af.x && ./af.x && rm a.f90', shell=True)
+
+-->
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ gcc a.c &amp;&amp; ./a.out
+$ gfortran a.f90 &amp;&amp;  ./a.out
+$ ls -l ?file
+-rw-rw-r-- 1 olav olav  8 Oct  9 07:16 cfile
+-rw-rw-r-- 1 olav olav 16 Oct  9 07:16 ffile
+</pre></div>
+</div>
+<p>The C and Fortran program write the same data, but the resulting binary files have different size.</p>
+<hr class="docutils" />
+<p>The unix command <code class="docutils literal notranslate"><span class="pre">od</span></code> (octal dump) can give information of binary files</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ od -F cfile
+0000000                3.1415927
+0000010
+</pre></div>
+</div>
+<p>–</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ od -F ffile
+0000000   8.344736732028587e+127        1.7506760985e-313
+0000020
+</pre></div>
+</div>
+<p>–</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ od -D ffile
+0000000          8 1518260631 1074340347          8
+0000020
+</pre></div>
+</div>
+<p>–</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ od -F -j 4 ffile
+0000004                3.1415927                   4e-323
+0000020
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h3>Summary<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>C binary files is a stream of bytes</p></li>
+<li><p>Fortran binary files are composed of records</p></li>
+<li><p>Each record is padded by an integer record length</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="binary-files-with-python">
+<h3>Binary files with Python<a class="headerlink" href="#binary-files-with-python" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span></code> module used to translate c/fortran binary data to Python objects</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pack</span></code> function transforms Python data to c/fortran binary format</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unpack</span></code> function transforms c/fortran binary data to Python</p></li>
+</ul>
+</section>
+<section id="reading-a-fortran-record">
+<h3>reading a Fortran record<a class="headerlink" href="#reading-a-fortran-record" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">calcsize</span><span class="p">,</span> <span class="n">unpack</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">readrec</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">dataformat</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">intsize</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">datasize</span> <span class="o">=</span> <span class="n">calcsize</span><span class="p">(</span><span class="n">dataformat</span><span class="p">)</span> <span class="c1"># size of single element</span>
+<span class="gp">... </span>    <span class="n">head</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">intsize</span><span class="p">)</span>       <span class="c1"># initial integer is record size </span>
+<span class="gp">... </span>    <span class="nb">bytes</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="n">head</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>     <span class="c1"># convert to record size in bytes</span>
+<span class="gp">... </span>    <span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">bytes</span><span class="p">)</span>         <span class="c1"># read in a string of bytes</span>
+<span class="gp">... </span>    <span class="n">tail</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">intsize</span><span class="p">)</span>       <span class="c1"># the final integer</span>
+<span class="gp">... </span>    <span class="k">assert</span> <span class="n">head</span> <span class="o">==</span> <span class="n">tail</span>             <span class="c1"># check that record sizes match</span>
+<span class="gp">... </span>    <span class="n">size</span> <span class="o">=</span> <span class="nb">bytes</span><span class="o">//</span><span class="n">datasize</span>          <span class="c1"># size is number of elements</span>
+<span class="gp">... </span>    <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>                       <span class="c1"># get start/stop address</span>
+<span class="gp">... </span>    <span class="n">stop</span> <span class="o">=</span> <span class="n">calcsize</span><span class="p">(</span><span class="n">dataformat</span><span class="o">*</span><span class="n">size</span><span class="p">)</span> 
+<span class="gp">... </span>    <span class="n">vec</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="n">dataformat</span><span class="o">*</span><span class="n">size</span><span class="p">,</span><span class="n">data</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">stop</span><span class="p">])</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">array</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span> <span class="c1"># return data as numpy array</span>
+
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># open Fortran binary</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ffile&#39;</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arrdata</span><span class="o">=</span><span class="n">readrec</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">arrdata</span><span class="p">)</span>
+<span class="go">[3.1415927]</span>
+
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="compiled-modules-fortran-and-c">
+<h2>Compiled modules: Fortran and C<a class="headerlink" href="#compiled-modules-fortran-and-c" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>When Python is too slow</p></li>
+<li><p>When algorithm prevents vectorization</p></li>
+<li><p>Example <code class="docutils literal notranslate"><span class="pre">sin(x+y)</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">hw1</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">r1</span><span class="o">+</span><span class="n">r2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">hw1</span><span class="p">(</span><span class="mf">.1</span><span class="p">,</span><span class="mf">.2</span><span class="p">))</span>
+<span class="go">0.2955202066613396</span>
+
+</pre></div>
+</div>
+<hr class="docutils" />
+<section id="fortran-functions">
+<h3>Fortran functions<a class="headerlink" href="#fortran-functions" title="Link to this heading">#</a></h3>
+<p>Suppose we want to evalute the function in fortran</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># hw.f</span>
+<span class="n">double</span> <span class="n">precision</span> <span class="n">function</span> <span class="n">hw1</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">)</span>
+<span class="n">double</span> <span class="n">precision</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span>
+<span class="n">hw1</span>  <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">r1</span><span class="o">+</span><span class="n">r2</span><span class="p">)</span>
+<span class="k">return</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<!--
+>>> with open('hw.f90', 'w') as hwf:
+...     hwf.write("""\
+... # hw.f90
+... double precision function hw1(r1, r2)
+... double precision r1, r2
+... hw1  = sin(r1+r2)
+... return
+... end
+...
+... subroutine hw2(r1, r2, s)
+... double precision r1, r2, s
+... !f2py  intent(out) s
+... s = sin(r1+r2)
+... return
+... end
+... """)
+201
+
+-->
+<p>We now use the <code class="docutils literal notranslate"><span class="pre">f2py</span></code> command to generate a dynamically linked library Python can import</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ f2py -c -m hw hw.f &gt; log
+$ ls -lt hw.*
+-rwxrwxr-x 1 olav olav 95954 Oct  9 08:06 hw.so
+-rw-rw-r-- 1 olav olav   255 Oct  9 08:04 hw.f
+</pre></div>
+</div>
+<!--
+>>> _ = subprocess.call('f2py -c -m hw hw.f90', shell=True)
+
+-->
+<p>In Python</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">hw</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hw</span><span class="o">.</span><span class="n">hw1</span><span class="p">(</span><span class="mf">.1</span><span class="p">,</span> <span class="mf">.2</span><span class="p">)</span>
+<span class="go">0.2955202066613396</span>
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="fortran-subroutines">
+<h3>Fortran subroutines<a class="headerlink" href="#fortran-subroutines" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>In fortran input and output arguments to fortran subroutines can be in any order</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">subroutine</span> <span class="n">hw2</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="n">double</span> <span class="n">precision</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">s</span>
+<span class="n">s</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">r1</span><span class="o">+</span><span class="n">r2</span><span class="p">)</span>
+<span class="k">return</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>–</p>
+<ul class="simple">
+<li><p>The Python convention is that arguments are input and return values are output:
+<code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">hw2(r1,r2)</span></code> We can supply the subroutine with information</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>subroutine hw2(r1, r2, s)
+double precision r1, r2, s
+!f2py  intent(out) s
+s=sin(r1+r2)
+return
+end
+</pre></div>
+</div>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Usage: function (hw1) and subroutine (hw2) versions</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">hw</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">hw</span><span class="o">.</span><span class="n">hw1</span><span class="p">(</span><span class="mf">.1</span><span class="p">,</span><span class="mf">.2</span><span class="p">))</span>
+<span class="go">0.2955202066613396</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">hw</span><span class="o">.</span><span class="n">hw2</span><span class="p">(</span><span class="mf">.1</span><span class="p">,</span><span class="mf">.2</span><span class="p">))</span>
+<span class="go">0.2955202066613396</span>
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="c-functions">
+<h3>C-functions<a class="headerlink" href="#c-functions" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">hw</span><span class="o">.</span><span class="n">c</span>
+<span class="n">include</span> <span class="o">&lt;</span><span class="n">math</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span>
+<span class="n">double</span> <span class="n">hw3</span><span class="p">(</span><span class="n">double</span> <span class="n">r1</span><span class="p">,</span> <span class="n">double</span> <span class="n">r2</span><span class="p">){</span>
+    <span class="n">double</span> <span class="n">s</span><span class="p">;</span>
+    <span class="n">s</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">r1</span><span class="o">+</span><span class="n">r2</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<!--
+>>> with open('hw.c', 'w') as hwc:
+...     n = hwc.write("""\
+... // hw.c
+... #include <math.h>
+... double hw3(double r1, double r2){
+...     double s;
+...     s=sin(r1+r2);
+...     return s;
+... }
+... """)
+
+-->
+<p>Possiblities</p>
+<ul class="simple">
+<li><p>use f2py here as well - must write a fortran style interface</p></li>
+<li><p>ctypes module: compile as a shared library</p></li>
+</ul>
+<p>Need a fortran signature file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    #signatures.f90
+    real*8 function hw3(r1, r2)
+    !f2py intent(c) hw3
+    real*8 r1, r2
+    !f2py intent(c) r1, r2
+    end
+</pre></div>
+</div>
+<!--
+>>> with open('signatures.f90', 'w') as sigf:
+...     n = sigf.write("""\
+... !signatures.f90
+... real*8 function hw3(r1, r2)
+... !f2py intent(c) hw3
+... real*8 r1, r2
+... !f2py intent(c) r1, r2
+... end
+... """)
+
+-->
+<hr class="docutils" />
+<ul class="simple">
+<li><p>With f2y:generate header file</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ f2py -m hw_c -h hw.pyf signatures.f90
+Reading fortran codes...
+Post-processing...
+Post-processing (stage 2)...
+Saving signatures to file &quot;./hw.pyf&quot;
+</pre></div>
+</div>
+<!--
+>>> _ = subprocess.call('f2py -m hw_c -h hw.pyf signatures.f90', shell=True)
+
+-->
+<p>–</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat hw.pyf
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module hw_c ! in 
+    interface  ! in :hw_c
+        function hw3(r1,r2) ! in :hw_c:signatures.f90
+            intent(c) hw3
+            real*8 intent(c) :: r1
+            real*8 intent(c) :: r2
+            real*8 intent(c) :: hw3
+        end function hw3
+    end interface 
+end python module hw_c
+</pre></div>
+</div>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Compile</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ f2py -c hw.pyf hw.c &gt; log
+</pre></div>
+</div>
+<!--
+>>> _ = subprocess.call('f2py -c hw.pyf hw.c', shell=True)
+
+-->
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">hw_c</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hw_c</span><span class="o">.</span><span class="n">hw3</span><span class="p">(</span><span class="mf">.1</span><span class="p">,</span> <span class="mf">.2</span><span class="p">)</span>
+<span class="go">0.2955202066613396</span>
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="the-ctypes-module">
+<h3>The ctypes module<a class="headerlink" href="#the-ctypes-module" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gcc -shared -fPIC -o hw_ctypes.so hw.c
+$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
+</pre></div>
+</div>
+<!--
+>>> _ = subprocess.call('gcc -shared -fPIC -o hw_ctypes.so hw.c', shell=True)
+
+-->
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="n">CDLL</span><span class="p">,</span> <span class="n">c_double</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hw_lib</span> <span class="o">=</span> <span class="n">CDLL</span><span class="p">(</span><span class="s1">&#39;hw_ctypes.so&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hw_lib</span><span class="o">.</span><span class="n">hw3</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="n">c_double</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">hw_lib</span><span class="o">.</span><span class="n">hw3</span><span class="p">(</span><span class="n">c_double</span><span class="p">(</span><span class="mf">.1</span><span class="p">),</span> <span class="n">c_double</span><span class="p">(</span><span class="mf">.2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="go">0.2955202066613396 &lt;class &#39;float&#39;&gt;</span>
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ctypes">
+<h3>ctypes<a class="headerlink" href="#ctypes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>allows calling shared libraries</p></li>
+<li><p>no need to compile</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ctypes</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ctypes.util</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#find path to libm.so</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path_to_libm</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_library</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#load library</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">libm</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cdll</span><span class="o">.</span><span class="n">LoadLibrary</span><span class="p">(</span><span class="n">path_to_libm</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">libm</span><span class="o">.</span><span class="n">cos</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_double</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">libm</span><span class="o">.</span><span class="n">cos</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_double</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">cos_func</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">libm</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>–</p>
+<ul class="simple">
+<li><p>test</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cos_func</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="go">0.5403023058681398</span>
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="cython">
+<h3>cython<a class="headerlink" href="#cython" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>combines Python productivity with speed of C</p></li>
+<li><p>A Python-like language for C extensions, a compiler</p></li>
+<li><p>suited for scientific programs with numerical computations</p></li>
+<li><p>transfers Python/Cython to C, compiles with C-API</p></li>
+<li><p>add static declarations for variables, best for fundamental data types</p></li>
+<li><p>overhead in Python for objects functions removed</p></li>
+<li><p>strongly typed: type matters for operations</p></li>
+<li><p>dynamcally typed: type of variable set at runtime</p></li>
+<li><p>boxing and unboxing of objects for simple operations</p></li>
+<li><p>cython allows static info  -&gt; calculations on the values directly</p></li>
+<li><p>cython static:</p>
+<ul>
+<li><p>function signatures</p></li>
+<li><p>cdef</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="o">//</span> <span class="n">cos_module</span><span class="o">.</span><span class="n">pyx</span>
+    <span class="c1">#cdef extern from &quot;math.h&quot;:</span>
+    <span class="c1">#    double cos(double arg)</span>
+    <span class="kn">from</span> <span class="nn">libc.math</span> <span class="n">cimport</span> <span class="n">cos</span>
+
+    <span class="k">def</span> <span class="nf">cos_func</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">cos</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+</pre></div>
+</div>
+<!--
+>>> with open('cos_module.pyx', 'w') as pyx:
+...     _ = pyx.write("""\
+... #cdef extern from "math.h":
+... #    double cos(double arg)
+... from libc.math cimport cos
+...
+... def cos_func(arg):
+...     return cos(arg)
+... """)
+
+-->
+<p>–</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># setup.py</span>
+    <span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">Extension</span>
+    <span class="kn">from</span> <span class="nn">Cython.Distutils</span> <span class="kn">import</span> <span class="n">build_ext</span>
+
+    <span class="n">setup</span><span class="p">(</span>
+        <span class="n">cmdclass</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;build_ext&#39;</span><span class="p">:</span><span class="n">build_ext</span><span class="p">},</span>
+        <span class="n">ext_modules</span><span class="o">=</span><span class="p">[</span><span class="n">Extension</span><span class="p">(</span><span class="s2">&quot;cos_module&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;cos_module.pyx&quot;</span><span class="p">])]</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<!--
+>>> with open('setup.py', 'w') as setuppy:
+...    _ = setuppy.write("""\
+... # setup.py
+... from distutils.core import setup, Extension
+... from Cython.Distutils import build_ext
+...
+... setup(
+...     cmdclass={'build_ext':build_ext},
+...     ext_modules=[Extension("cos_module", ["cos_module.pyx"])]
+... )
+... """)
+
+-->
+<hr class="docutils" />
+<ul class="simple">
+<li><p>build and use</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    $ python setup.py build_ext --inplace
+</pre></div>
+</div>
+<!--
+>>> _ = subprocess.call('python setup.py build_ext --inplace', shell=True)
+
+-->
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cos_module</span> <span class="kn">import</span> <span class="n">cos_func</span> <span class="k">as</span> <span class="n">cos</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cos</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>                              
+<span class="go">0.5403023058681398</span>
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id4">
+<h3>Summary<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Input files in the form of triple quotes strings convenient for parameter studies</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">struct</span></code> module has functions for processing binary files</p></li>
+<li><p>Binary files from c- and Fortran programs have different structure (Fortran records)</p></li>
+<li><p>To speed up Python code write a function in Fortran and compile it with <code class="docutils literal notranslate"><span class="pre">f2py</span></code> or use the <code class="docutils literal notranslate"><span class="pre">ctypes</span></code> module for C code</p></li>
+</ul>
+<ul class="simple">
+<li></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./interfaces"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interfacing-with-python">Interfacing with Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#olav-vahtras">Olav Vahtras</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Interfacing with Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interfacing-with-other-codes">Interfacing with other codes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interfacing-with-other-languages">Interfacing with other languages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Interfacing with other codes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-files-a-manual-example">Text files: a manual example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-files-same-example-automated">Text files: same example automated</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-files">Binary files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-fortran-differences">C/Fortran differences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Summary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-files-with-python">Binary files with Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-a-fortran-record">reading a Fortran record</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiled-modules-fortran-and-c">Compiled modules: Fortran and C</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fortran-functions">Fortran functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fortran-subroutines">Fortran subroutines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-functions">C-functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ctypes-module">The ctypes module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ctypes">ctypes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cython">cython</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Summary</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1351 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction to Python &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/introduction';</script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">My sample book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Lecture slides for Computational Python
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/introduction.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/introduction.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction to Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fca3004">FCA3004</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-python">What is Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-uses-python">Who uses Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-python">How to run Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line">Command-line</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-python-scripts">Running Python scripts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-python-scripts">Creating Python scripts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-editors">Text editors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ide-s">IDE:s</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">Visual Studio Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pycharm">Pycharm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks">Notebooks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#language-fundamentals">Language fundamentals</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-names">Python names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-values-and-types">Python values and types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-types">Numerical types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-operations">Numerical operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operations">Logical operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-str">Strings: <code class="docutils literal notranslate"><span class="pre">str</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-operations">String operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-methods">Common methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#container-types">Container types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-logic">Program logic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repetition-iteration-looping">Repetition (iteration, looping)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-over-lists">Looping over lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-over-strings">Looping over strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-over-dictionaries">Looping over dictionaries</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branching">Branching</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-units">Program units</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modules">Modules</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sys"><code class="docutils literal notranslate"><span class="pre">sys</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#os"><code class="docutils literal notranslate"><span class="pre">os</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#math"><code class="docutils literal notranslate"><span class="pre">math</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tip">Tip</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-using-your-own-modules">Writing/using your own modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-code-multiplication-table">Sample code: multiplication table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-documentation">Standard documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-line-books">On-line books</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#online-tutorials">Online tutorials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#youtube">Youtube</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-python">
+<h1>Introduction to Python<a class="headerlink" href="#introduction-to-python" title="Link to this heading">#</a></h1>
+<section id="fca3004">
+<h2>FCA3004<a class="headerlink" href="#fca3004" title="Link to this heading">#</a></h2>
+<p>KTH</p>
+<hr class="docutils" />
+<p>layout: false</p>
+</section>
+<section id="what-is-python">
+<h2>What is Python<a class="headerlink" href="#what-is-python" title="Link to this heading">#</a></h2>
+<p><a title="Daniel Stroud, CC BY-SA 4.0
+&lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons"
+href="https://commons.wikimedia.org/wiki/File:Guido-portrait-2014.jpg"><img
+width="256" alt="Guido-portrait-2014"
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Guido-portrait-2014.jpg/512px-Guido-portrait-2014.jpg"></a></p>
+<p>Python is a scripting language written by Guido van Rossum</p>
+<blockquote>
+<div><p><em>My original motivation for creating Python was the perceived need for a higher
+level language in the Amoeba [Operating Systems] project. I realized that the
+development of system administration utilities in C was taking too long.
+Moreover, doing these things in the Bourne shell wouldn’t work for a variety of
+reasons. … So, there was a need for a language that would bridge the gap
+between C and the shell.</em></p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="who-uses-python">
+<h2>Who uses Python<a class="headerlink" href="#who-uses-python" title="Link to this heading">#</a></h2>
+<p>From small scripts to large applications</p>
+<div class="row">
+    <div class="col">
+        <code class="hljs">print("Hello world!")</code>
+    </div>
+    <div class="col">
+     <img class="img-fluid" src="{{ base }}/img/th-808922334.jpeg">
+    </div>
+    <div class="col">
+     <img class="img-fluid" src="{{ base }}/img/Instagram_logo_2022.svg.png">
+    </div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="how-to-run-python">
+<h2>How to run Python<a class="headerlink" href="#how-to-run-python" title="Link to this heading">#</a></h2>
+<section id="command-line">
+<h3>Command-line<a class="headerlink" href="#command-line" title="Link to this heading">#</a></h3>
+<p>Many Python programs are run from the computer’s command-line interface (CLI).
+In the CLI you type commands that the computer interprets and acts upon.</p>
+<ul class="simple">
+<li><p>The CLI on a mac/linux is a terminal program that reads commands in the bash
+scripting language (or equivalent)</p></li>
+<li><p>The CLI on windows is the console program known as CMD.</p></li>
+<li><p>The CLI prompt is a character string printed at the beginning of each line when
+waiting for a command</p></li>
+</ul>
+<p>In these slides we use the convention</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$</span> </code>  is the bash prompt (mac/linux)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">C&gt;</span> </code> is the CMD prompt (windows)</p></li>
+</ul>
+<p>Typing <code class="docutils literal notranslate"><span class="pre">python</span></code> in the CLI starts an interactive Python session accepting
+Python commands</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span> </code> is the Python prompt</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>The Python interactive shell is also known as the REPL (read-evaluate-print-loop)</p>
+<ul>
+<li><p>R read a Python expression</p></li>
+<li><p>E evaluate the expression</p></li>
+<li><p>P print the value of the expressions to the screen</p></li>
+<li><p>L loop (start over)</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python
+&gt;&gt;&gt; print(&quot;Hello world&quot;)
+Hello world
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Use case: a desktop calculator</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python
+&gt;&gt;&gt; 10 + 10*0.25
+12.5
+&gt;&gt;&gt; _  * 2
+25.0
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>in this context the underscore <code class="docutils literal notranslate"><span class="pre">_</span></code> means the value of the previous expression</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="running-python-scripts">
+<h3>Running Python scripts<a class="headerlink" href="#running-python-scripts" title="Link to this heading">#</a></h3>
+<p>Assuming you have a file with Python instructions:</p>
+<p><code class="docutils literal notranslate"><span class="pre">hello.py</span> </code></p>
+<p>you run the script by giving it as a command-line argument to the python
+interpreter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python hello.py
+Hello world
+Goodbye
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="creating-python-scripts">
+<h2>Creating Python scripts<a class="headerlink" href="#creating-python-scripts" title="Link to this heading">#</a></h2>
+<section id="text-editors">
+<h3>Text editors<a class="headerlink" href="#text-editors" title="Link to this heading">#</a></h3>
+<p>To enter code into files you need to use a text editor (not a word processor
+like Microsoft Word). A text editor is good for programming if it automatically
+colors special keywords for the programming language of that file. A simple
+editor that fulfills this is <code class="docutils literal notranslate"><span class="pre">nano</span></code>.</p>
+<p>Developers survey on
+<a href="https://insights.stackoverflow.com/survey/2018/#development-environments-and-tools">
+most popular programming editor
+</a>:
+normally lists editors like vim, emacs, atom, sublime.
+Spending time to learn one well is worth the investment.</p>
+</section>
+<hr class="docutils" />
+<section id="ide-s">
+<h3>IDE:s<a class="headerlink" href="#ide-s" title="Link to this heading">#</a></h3>
+<p>IDE = Integrated development environment</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install mu-editor
+$ mu-editor hello.py
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="visual-studio-code">
+<h3>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Microsoft open source project</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="pycharm">
+<h3>Pycharm<a class="headerlink" href="#pycharm" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Community and Professional editions from JetBrains</p></li>
+</ul>
+<ul class="simple">
+<li><p>see <a class="reference external" href="https://www.jetbrains.com/student/">https://www.jetbrains.com/student/</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="notebooks">
+<h3>Notebooks<a class="headerlink" href="#notebooks" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>work/develop in browser</p></li>
+<li><p>mix documentation and code</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ jupyter notebook
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>good for exploration/experimentation/demonstration</p></li>
+<li><p>not good for writing large structured programs</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="language-fundamentals">
+<h1>Language fundamentals<a class="headerlink" href="#language-fundamentals" title="Link to this heading">#</a></h1>
+<section id="python-names">
+<h2>Python names<a class="headerlink" href="#python-names" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Names in Python are what most languages refer to as variables, or variable names</p></li>
+<li><p>To save the value of an object a name can be assigned to it</p></li>
+<li><p>The assignment operator is <code class="docutils literal notranslate"><span class="pre">=</span></code></p></li>
+<li><p>Assignment is to bind a name to an object</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">*</span> <span class="mi">9</span>
+
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>The right-hand side is evaluated</p></li>
+<li><p>An <code class="docutils literal notranslate"><span class="pre">int</span></code> object with value 72 is created in memory</p></li>
+<li><p>An association is created with this object and the name <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+</ol>
+<pre style='background-color:#fbf1c7;'>
+                ┏━━┓
+                ┃ x┃
+    ┌─┐   ┌─┐   ┡━━┩ 
+    │8│ * │9│ → │72│
+    └─┘   └─┘   └──┘
+</pre> 
+<hr class="docutils" />
+<ul class="simple">
+<li><p>The name can be used in other expressions as an alias for that value</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+<span class="go">144</span>
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="python-values-and-types">
+<h2>Python values and types<a class="headerlink" href="#python-values-and-types" title="Link to this heading">#</a></h2>
+<p>Objects and expressions in Python have a value of some type.
+A type determines the range of possible values and operations that are defined
+for objects of that type.</p>
+<section id="numerical-types">
+<h3>Numerical types<a class="headerlink" href="#numerical-types" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>whole numbers (<code class="docutils literal notranslate"><span class="pre">int</span></code>): e.g. <code class="docutils literal notranslate"><span class="pre">-1,</span> <span class="pre">7,</span> <span class="pre">2000</span></code></p></li>
+<li><p>decimal numbers (<code class="docutils literal notranslate"><span class="pre">float</span></code>): <code class="docutils literal notranslate"><span class="pre">3.14,</span> <span class="pre">1.0</span> <span class="pre">-7.25</span></code></p></li>
+<li><p>complex numbers (<code class="docutils literal notranslate"><span class="pre">complex</span></code>): <code class="docutils literal notranslate"><span class="pre">1j,</span> <span class="pre">7+5j</span></code></p></li>
+<li><p>logical (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</section>
+<section id="numerical-operations">
+<h3>Numerical operations<a class="headerlink" href="#numerical-operations" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code> Addition</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> Subtraction</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> Multiplication</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/</span></code> Division (<code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">/</span> <span class="pre">2</span> <span class="pre">→</span> <span class="pre">3.5</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">//</span></code> Integer floor division (<code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">//</span> <span class="pre">2</span> <span class="pre">→</span> <span class="pre">3</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%</span></code> Integer modulus (remainder) (<code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">%</span> <span class="pre">2</span> <span class="pre">→</span> <span class="pre">1</span></code>)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="logical-operations">
+<h3>Logical operations<a class="headerlink" href="#logical-operations" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">and</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">and</span> <span class="pre">True</span></code> → <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">and</span> <span class="pre">False</span></code> → <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">and</span> <span class="pre">False</span></code> → <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">or</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">or</span> <span class="pre">True</span></code> → <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">or</span> <span class="pre">False</span></code> → <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">or</span> <span class="pre">False</span></code> → <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">not</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">True</span></code> → <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">False</span></code> → <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+</ul>
+</li>
+<li><p>equality</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">==</span> <span class="pre">1</span></code> → <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">==</span> <span class="pre">1.0</span></code> → <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">!=</span> <span class="pre">1</span></code> → <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>identity</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">is</span> <span class="pre">1</span></code> → <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">is</span> <span class="pre">1.0</span></code> → <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</li>
+<li><p>relational</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;</span> <span class="pre">1</span></code> → <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&gt;=</span> <span class="pre">1.0</span></code> → <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="strings-str">
+<h3>Strings: <code class="docutils literal notranslate"><span class="pre">str</span></code><a class="headerlink" href="#strings-str" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>a string is a sequence of characters <a class="reference external" href="https://home.unicode.org/">(unicode)</a></p></li>
+<li><p>literal strings are written within quotation marks</p></li>
+<li><p>single <code class="docutils literal notranslate"><span class="pre">'</span></code> and double <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> quotation marks have the same status</p></li>
+<li><p>three quotation marks limit strings that can span several lines</p></li>
+<li><p>there is no single character type</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s time&quot;</span><span class="p">)</span>
+<span class="go">It&#39;s time</span>
+
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Our boss is &quot;nice&quot;. 😀&#39;</span><span class="p">)</span>
+<span class="go">Our boss is &quot;nice&quot;. 😀</span>
+
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Hello</span>
+<span class="gp">... </span><span class="s2">world&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="go">Hello</span>
+<span class="go">world</span>
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="string-operations">
+<h3>String operations<a class="headerlink" href="#string-operations" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Concatenation</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;hello&#39;</span> <span class="o">+</span> <span class="s1">&#39;world&#39;</span>
+<span class="go">&#39;helloworld&#39;</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Duplication</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;bye&#39;</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="go">&#39;byebye&#39;</span>
+
+</pre></div>
+</div>
+</section>
+<section id="common-methods">
+<h3>Common methods<a class="headerlink" href="#common-methods" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;FORTRAN&#39;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="go">&#39;fortran&#39;</span>
+
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;c++&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="go">&#39;C++&#39;</span>
+
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;jo&#39;</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+<span class="go">&#39;Jo&#39;</span>
+
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="container-types">
+<h2>Container types<a class="headerlink" href="#container-types" title="Link to this heading">#</a></h2>
+<p>The most important container types are lists, tuples and dictionaries</p>
+<section id="lists">
+<h3>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A list is a ordered sequence of elements</p></li>
+<li><p>A literal list in code is defined by square brackets and comma-separated
+elements <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></code></p></li>
+<li><p>List can have members of different types</p></li>
+<li><p>List members are referenced with <code class="docutils literal notranslate"><span class="pre">[n]</span></code> where <code class="docutils literal notranslate"><span class="pre">n=0,</span> <span class="pre">1,</span> <span class="pre">2...</span></code></p></li>
+<li><p>A list can be empty, <code class="docutils literal notranslate"><span class="pre">[]</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">colours</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hearts&#39;</span><span class="p">,</span> <span class="s1">&#39;spades&#39;</span><span class="p">,</span> <span class="s1">&#39;diamonds&#39;</span><span class="p">,</span> <span class="s1">&#39;clubs&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;knight&#39;</span><span class="p">,</span> <span class="s1">&#39;queen&#39;</span><span class="p">,</span> <span class="s1">&#39;king&#39;</span><span class="p">,</span> <span class="s1">&#39;ace&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">colours</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;hearts&#39;</span>
+
+</pre></div>
+</div>
+<p><em>Note that brackets are both used in the notation for a literal list and for
+getting a member from a collection (not only for lists)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_member</span> <span class="o">=</span> <span class="n">a_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="tuples">
+<h3>Tuples<a class="headerlink" href="#tuples" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>An immutable (unchangeable) sequence of objects</p></li>
+<li><p>Similar to lists</p></li>
+<li><p>() is the empty tuple</p></li>
+<li><p>(1,)  contains 1 element -note the comma</p></li>
+</ul>
+<p>Handy packing and unpacking</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="c1"># packing</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">t</span> <span class="c1"># unpacking</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="c1"># swapping (packing and unpacking)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">1</span>
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="dictionaries">
+<h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dict</span></code> type define sets of key-value pairs</p></li>
+<li><p>Curly braces with comma-separates pairs define a literal dict</p></li>
+<li><p>Each pair is separated by a colon <code class="docutils literal notranslate"><span class="pre">:</span></code></p></li>
+<li><p>The key can be any immutable (unchangeable) object</p></li>
+<li><p>Very useful for complex structures</p></li>
+<li><p>Efficient and highly optimized</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">empty</span> <span class="o">=</span>  <span class="p">{}</span> <span class="c1"># empty dict</span>
+<span class="n">newdict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="program-logic">
+<h2>Program logic<a class="headerlink" href="#program-logic" title="Link to this heading">#</a></h2>
+<section id="repetition-iteration-looping">
+<h3>Repetition (iteration, looping)<a class="headerlink" href="#repetition-iteration-looping" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">...</span> <span class="pre">in</span></code> statement is used repeat the same operation for all elements of a
+sequence</p></li>
+<li><p>A loop variable will reference the elements of the sequence, one at a time</p></li>
+</ul>
+</section>
+<section id="looping-over-lists">
+<h3>Looping over lists<a class="headerlink" href="#looping-over-lists" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span> 
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="go">2</span>
+<span class="go">3</span>
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="looping-over-strings">
+<h3>Looping over strings<a class="headerlink" href="#looping-over-strings" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s1">&#39;hello&#39;</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="go">h</span>
+<span class="go">e</span>
+<span class="go">l</span>
+<span class="go">l</span>
+<span class="go">o</span>
+
+</pre></div>
+</div>
+</section>
+<section id="looping-over-dictionaries">
+<h3>Looping over dictionaries<a class="headerlink" href="#looping-over-dictionaries" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="go">a 1</span>
+<span class="go">b 2</span>
+
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+<span class="go">a 1</span>
+<span class="go">b 2</span>
+
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="branching">
+<h2>Branching<a class="headerlink" href="#branching" title="Link to this heading">#</a></h2>
+<p>Conditional execution of code blocks depending on whether an expression
+evaluates to True or not:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No&quot;</span><span class="p">)</span>
+<span class="go">Yes</span>
+
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot; is larger than &quot;</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;is smaller than or equal to&quot;</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<span class="go">0 is smaller than or equal to 0</span>
+
+</pre></div>
+</div>
+<p>Most object types have some truthiness. Empty lists in a logical context
+evaluate to False, non-empty to True</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="p">[]:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Non-empty list&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Empty list&quot;</span><span class="p">)</span>
+<span class="go">Empty list</span>
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="program-units">
+<h2>Program units<a class="headerlink" href="#program-units" title="Link to this heading">#</a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Functions are objects that can take some input and return some output.
+Functions are the primary way of grouping code into independent units, that can be tested and reused</p></li>
+<li><p>Function definitions start <code class="docutils literal notranslate"><span class="pre">def</span></code>, a name,  parentheses with or without
+arguments (comma-separated) and a colon.
+The body of the function is indented with respect to the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword.
+The last line of a function definition is normally a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement and determines the value of a function call</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="n">x2</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">... </span>   <span class="k">return</span> <span class="n">x2</span>
+
+</pre></div>
+</div>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Functions are called with function name and an actual parameter.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">4</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Inside the function the formal parameter <code class="docutils literal notranslate"><span class="pre">x</span></code> becomes a reference to the actual
+parameter <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="modules">
+<h3>Modules<a class="headerlink" href="#modules" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>a file with Python source</p>
+<ul>
+<li><p>name is the filename without the <code class="docutils literal notranslate"><span class="pre">.py</span></code> extension</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import</span></code> modules to reuse code</p></li>
+<li><p>members of module referenced with dot notation <code class="docutils literal notranslate"><span class="pre">module.member</span></code></p></li>
+</ul>
+<p>Commonly used Python modules</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sys</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">os</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">math</span></code></p></li>
+</ul>
+<hr class="docutils" />
+<section id="sys">
+<h4><code class="docutils literal notranslate"><span class="pre">sys</span></code><a class="headerlink" href="#sys" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>system modules</p></li>
+<li><p>needed e.g. for arguments to a script</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sys.argv</span></code> is a list containing command-line arguments</p></li>
+<li><p>The first element <code class="docutils literal notranslate"><span class="pre">sys.argv</span> <span class="pre">[0]</span></code> is the file name</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">infile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="os">
+<h4><code class="docutils literal notranslate"><span class="pre">os</span></code><a class="headerlink" href="#os" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Interaction with operating system</p></li>
+<li><p>Example: execute a unix command</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;/bin/date&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="math">
+<h4><code class="docutils literal notranslate"><span class="pre">math</span></code><a class="headerlink" href="#math" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>all basic elementary functions</p></li>
+<li><p>fundamental constants</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="tip">
+<h4>Tip<a class="headerlink" href="#tip" title="Link to this heading">#</a></h4>
+<p>Many use the math modules as a desktop calculator</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python
+&gt;&gt;&gt; from math import *
+&gt;&gt;&gt; print(pi/2)
+1.5707963267948966
+&gt;&gt;&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="writing-using-your-own-modules">
+<h3>Writing/using your own modules<a class="headerlink" href="#writing-using-your-own-modules" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Suppose you have written file <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> with function <code class="docutils literal notranslate"><span class="pre">say_hello</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#hello.py</span>
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">&quot;Hello world!&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>To access the same function in other code, import the module</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">hello</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">message</span> <span class="o">=</span> <span class="n">hello</span><span class="o">.</span><span class="n">say_hello</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="go">Hello world!</span>
+
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="sample-code-multiplication-table">
+<h3>Sample code: multiplication table<a class="headerlink" href="#sample-code-multiplication-table" title="Link to this heading">#</a></h3>
+<p>Version 1: if we only know print</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Version 2: extract the varying data to a variable</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Version 3: introduction the for loop, indented blocks</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span> <span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Version 4: the <code class="docutils literal notranslate"><span class="pre">range</span></code> function</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>Version 5: define as a function</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_mult_table</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Version 6: call the function from the command line</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">def</span> <span class="nf">print_mult_table</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">print_mult_table</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>the system variable <code class="docutils literal notranslate"><span class="pre">__name__</span></code> has the value <code class="docutils literal notranslate"><span class="pre">&quot;__main__&quot;</span></code> (double underscores)
+when the file is executed as a program</p></li>
+<li><p>it has the value equal to the file name when it is imported as a module</p></li>
+<li><p>command-line argments appear in the system variable <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>, a Python list
+which has the file name as the first member (of index zero)</p></li>
+</ul>
+<p>A common pattern when a file is used both as an independent script and as a
+module imported by other programs</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Basic syntax - indentation</p></li>
+<li><p>Basic built-in types</p></li>
+<li><p>Scalar and container types</p></li>
+<li><p>Variables</p></li>
+<li><p>Functions</p></li>
+<li><p>Modules</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
+<section id="standard-documentation">
+<h3>Standard documentation<a class="headerlink" href="#standard-documentation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3">https://docs.python.org/3</a></p></li>
+</ul>
+</section>
+<section id="on-line-books">
+<h3>On-line books<a class="headerlink" href="#on-line-books" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Jake van der Plas:
+<a href="http://nbviewer.jupyter.org/github/jakevdp/WhirlwindTourOfPython/blob/master/Index.ipynb"> A Worldwind Tour of Python</a></p></li>
+<li><p>Jake van der Plas: <a href="https://jakevdp.github.io/PythonDataScienceHandbook/">Data Science Handbook</a></p></li>
+<li><p>Al Sweigart: <a href="https://automatetheboringstuff.com">Automate the Boring Stuff with Python</a></p></li>
+</ul>
+</section>
+<section id="online-tutorials">
+<h3>Online tutorials<a class="headerlink" href="#online-tutorials" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/">https://docs.python.org/3/tutorial/</a></p></li>
+<li><p><a class="reference external" href="https://realpython.com">https://realpython.com</a></p></li>
+<li><p><a class="reference external" href="https://dabeaz-course.github.io/practical-python">https://dabeaz-course.github.io/practical-python</a></p></li>
+</ul>
+</section>
+<section id="youtube">
+<h3>Youtube<a class="headerlink" href="#youtube" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Variables in Python <a class="reference external" href="https://www.youtube.com/watch?v=_AEJHKGk9ns">https://www.youtube.com/watch?v=_AEJHKGk9ns</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction to Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fca3004">FCA3004</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-python">What is Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-uses-python">Who uses Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-python">How to run Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line">Command-line</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-python-scripts">Running Python scripts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-python-scripts">Creating Python scripts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-editors">Text editors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ide-s">IDE:s</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">Visual Studio Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pycharm">Pycharm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks">Notebooks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#language-fundamentals">Language fundamentals</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-names">Python names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-values-and-types">Python values and types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-types">Numerical types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-operations">Numerical operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operations">Logical operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-str">Strings: <code class="docutils literal notranslate"><span class="pre">str</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-operations">String operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-methods">Common methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#container-types">Container types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-logic">Program logic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repetition-iteration-looping">Repetition (iteration, looping)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-over-lists">Looping over lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-over-strings">Looping over strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-over-dictionaries">Looping over dictionaries</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branching">Branching</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#program-units">Program units</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modules">Modules</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sys"><code class="docutils literal notranslate"><span class="pre">sys</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#os"><code class="docutils literal notranslate"><span class="pre">os</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#math"><code class="docutils literal notranslate"><span class="pre">math</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tip">Tip</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-using-your-own-modules">Writing/using your own modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-code-multiplication-table">Sample code: multiplication table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-documentation">Standard documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-line-books">On-line books</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#online-tutorials">Online tutorials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#youtube">Youtube</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
