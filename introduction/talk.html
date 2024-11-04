@@ -397,7 +397,6 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#language-fundamentals">Language fundamentals</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-names">Python names</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-values-and-types">Python values and types</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-types">Numerical types</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-operations">Numerical operations</a></li>
@@ -407,6 +406,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-methods">Common methods</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-names">Python names</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#container-types">Container types</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a></li>
@@ -689,41 +689,6 @@ $ mu-editor hello.py
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="language-fundamentals">
 <h1>Language fundamentals<a class="headerlink" href="#language-fundamentals" title="Link to this heading">#</a></h1>
-<section id="python-names">
-<h2>Python names<a class="headerlink" href="#python-names" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Names in Python are what most languages refer to as variables, or variable names</p></li>
-<li><p>To save the value of an object a name can be assigned to it</p></li>
-<li><p>The assignment operator is <code class="docutils literal notranslate"><span class="pre">=</span></code></p></li>
-<li><p>Assignment is to bind a name to an object</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">*</span> <span class="mi">9</span>
-
-</pre></div>
-</div>
-<ol class="arabic simple">
-<li><p>The right-hand side is evaluated</p></li>
-<li><p>An <code class="docutils literal notranslate"><span class="pre">int</span></code> object with value 72 is created in memory</p></li>
-<li><p>An association is created with this object and the name <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
-</ol>
-<pre style='background-color:#fbf1c7;'>
-                ┏━━┓
-                ┃ x┃
-    ┌─┐   ┌─┐   ┡━━┩ 
-    │8│ * │9│ → │72│
-    └─┘   └─┘   └──┘
-</pre> 
-<hr class="docutils" />
-<ul class="simple">
-<li><p>The name can be used in other expressions as an alias for that value</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
-<span class="go">144</span>
-
-</pre></div>
-</div>
-</section>
-<hr class="docutils" />
 <section id="python-values-and-types">
 <h2>Python values and types<a class="headerlink" href="#python-values-and-types" title="Link to this heading">#</a></h2>
 <p>Objects and expressions in Python have a value of some type.
@@ -863,6 +828,41 @@ for objects of that type.</p>
 </pre></div>
 </div>
 </section>
+</section>
+<hr class="docutils" />
+<section id="python-names">
+<h2>Python names<a class="headerlink" href="#python-names" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Names in Python are what most languages refer to as variables, or variable names</p></li>
+<li><p>To save the value of an object a name can be assigned to it</p></li>
+<li><p>The assignment operator is <code class="docutils literal notranslate"><span class="pre">=</span></code></p></li>
+<li><p>Assignment is to bind a name to an object</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">*</span> <span class="mi">9</span>
+
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>The right-hand side is evaluated</p></li>
+<li><p>An <code class="docutils literal notranslate"><span class="pre">int</span></code> object with value 72 is created in memory</p></li>
+<li><p>An association is created with this object and the name <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+</ol>
+<pre style='background-color:#fbf1c7;'>
+                ┏━━┓
+                ┃ x┃
+    ┌─┐   ┌─┐   ┡━━┩ 
+    │8│ * │9│ → │72│
+    └─┘   └─┘   └──┘
+</pre> 
+<hr class="docutils" />
+<ul class="simple">
+<li><p>The name can be used in other expressions as an alias for that value</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+<span class="go">144</span>
+
+</pre></div>
+</div>
 </section>
 <hr class="docutils" />
 <section id="container-types">
@@ -1328,7 +1328,6 @@ module imported by other programs</p>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#language-fundamentals">Language fundamentals</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-names">Python names</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-values-and-types">Python values and types</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-types">Numerical types</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-operations">Numerical operations</a></li>
@@ -1338,6 +1337,7 @@ module imported by other programs</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-methods">Common methods</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-names">Python names</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#container-types">Container types</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a></li>

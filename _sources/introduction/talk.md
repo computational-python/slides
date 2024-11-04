@@ -244,40 +244,6 @@ $ jupyter notebook
 
 # Language fundamentals
 
-## Python names
-
-* Names in Python are what most languages refer to as variables, or variable names
-* To save the value of an object a name can be assigned to it
-* The assignment operator is `=`
-* Assignment is to bind a name to an object
-
-~~~
->>> x = 8 * 9
-
-~~~
-
-1. The right-hand side is evaluated
-1. An `int` object with value 72 is created in memory
-1. An association is created with this object and the name `x`
-
-<pre style='background-color:#fbf1c7;'>
-                ┏━━┓
-                ┃ x┃
-    ┌─┐   ┌─┐   ┡━━┩ 
-    │8│ * │9│ → │72│
-    └─┘   └─┘   └──┘
-</pre> 
----
-
-* The name can be used in other expressions as an alias for that value
-
-~~~
->>> print(x + x)
-144
-
-~~~
-
----
 
 ## Python values and types
 
@@ -393,6 +359,41 @@ world
 ~~~
 >>> 'jo'.capitalize()
 'Jo'
+
+~~~
+
+---
+
+## Python names
+
+* Names in Python are what most languages refer to as variables, or variable names
+* To save the value of an object a name can be assigned to it
+* The assignment operator is `=`
+* Assignment is to bind a name to an object
+
+~~~
+>>> x = 8 * 9
+
+~~~
+
+1. The right-hand side is evaluated
+1. An `int` object with value 72 is created in memory
+1. An association is created with this object and the name `x`
+
+<pre style='background-color:#fbf1c7;'>
+                ┏━━┓
+                ┃ x┃
+    ┌─┐   ┌─┐   ┡━━┩ 
+    │8│ * │9│ → │72│
+    └─┘   └─┘   └──┘
+</pre> 
+---
+
+* The name can be used in other expressions as an alias for that value
+
+~~~
+>>> print(x + x)
+144
 
 ~~~
 
