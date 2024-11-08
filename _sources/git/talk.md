@@ -129,7 +129,7 @@ done
 
 ## When to use
 
-#### Why
+### Why
 
 * For source code development
 * For manuscripts
@@ -138,7 +138,7 @@ done
 
 `Practically always`
 
-#### Benefits
+### Benefits
 
 * No history is lost
 * All versions of your documents are preserved
@@ -224,7 +224,7 @@ Creates a configuration file ``~/.gitconfig``
 
 
 ### Untracked files
----------------
+
 
 * ``git`` warns about files in the project directory that Git is not keeping track of
 * To tell git to do so
