@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Testing &#8212; My sample book</title>
+    <title>Testing &#8212; Lecture slides in Computational Python</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -58,9 +58,9 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'testing/talk';</script>
-    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Version Control: git" href="../git/talk.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +122,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -140,14 +138,20 @@
 
   
 
-<a class="navbar-brand logo" href="../intro.html">
+<a class="navbar-brand logo" href="../index.html">
   
   
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/KTH_Logotyp_RGB_2013.png" class="logo__image only-light" alt="Lecture slides in Computational Python - Home"/>
+    <script>document.write(`<img src="../_static/KTH_Logotyp_RGB_2013.png" class="logo__image only-dark" alt="Lecture slides in Computational Python - Home"/>`);</script>
   
-    <p class="title logo__title">My sample book</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -166,12 +170,17 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
+                <a class="reference internal" href="../index.html">
                     Lecture slides for Computational Python
                 </a>
             </li>
         </ul>
-        
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/talk.html">Introduction to Python</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../git/talk.html">Version Control: git</a></li>
+</ul>
+
     </div>
 </nav></div>
     </div>
@@ -365,10 +374,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#olav-vahtras">Olav Vahtras</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-testing">Why testing?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tdd-test-driven-development">TDD = Test-Driven Development</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-special-about-tdd">What’s special about TDD</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-tdd-in-practice">What is TDD in practice?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize">Initialize</a></li>
 </ul>
@@ -402,15 +408,14 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-pytest">Running <code class="docutils literal notranslate"><span class="pre">pytest</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nosetests-and-the-debugger">Nosetests and the debugger</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nosetest-and-coverage">Nosetest and coverage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest-and-the-debugger">Pytest and the debugger</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest-and-coverage">Pytest and coverage</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Pytest</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-coverage">Test coverage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fixtures">Fixtures</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-coverage">Test coverage</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommendation">Recommendation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-tip">Final tip</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#links">Links</a></li>
@@ -429,44 +434,19 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="testing">
 <h1>Testing<a class="headerlink" href="#testing" title="Link to this heading">#</a></h1>
-<section id="olav-vahtras">
-<h2>Olav Vahtras<a class="headerlink" href="#olav-vahtras" title="Link to this heading">#</a></h2>
 <p>Computational Python</p>
 <hr class="docutils" />
 <p>layout: false</p>
-</section>
 <section id="why-testing">
 <h2>Why testing?<a class="headerlink" href="#why-testing" title="Link to this heading">#</a></h2>
-<p>–</p>
 <ul class="simple">
-<li><p>Make sure the code is correct.
-–</p></li>
-<li><p>Testing is a design tool
-–</p></li>
+<li><p>Make sure the code is correct.</p></li>
+<li><p>Testing is a design tool</p></li>
 <li><p>Testing is a documentation tool</p></li>
-</ul>
-<hr class="docutils" />
-<p>class: middle, center</p>
-</section>
-<section id="tdd-test-driven-development">
-<h2>TDD = Test-Driven Development<a class="headerlink" href="#tdd-test-driven-development" title="Link to this heading">#</a></h2>
-</section>
-<hr class="docutils" />
-<section id="what-s-special-about-tdd">
-<h2>What’s special about TDD<a class="headerlink" href="#what-s-special-about-tdd" title="Link to this heading">#</a></h2>
-<p>There are several aspects</p>
-<p>–</p>
-<ul class="simple">
-<li><p>It makes for a better design
-–</p></li>
-<li><p>Code will never be written that is difficult to test
-–</p></li>
-<li><p>Code tends get better structure
-–</p></li>
-<li><p>Unconciously you do not want to find bugs - testing existing code tends to focus on the parts which work best.
-–</p></li>
-<li><p>It’s what professionals do
-–</p></li>
+<li><p>It makes for a better design</p></li>
+<li><p>Code will never be written that is difficult to test</p></li>
+<li><p>Code tends get better structure</p></li>
+<li><p>It’s what professionals do</p></li>
 <li><p>Because it saves time and money</p></li>
 </ul>
 </section>
@@ -498,24 +478,17 @@ document.write(`
 <section id="the-work-cycle">
 <h2>The work cycle<a class="headerlink" href="#the-work-cycle" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Run the test
-–</p></li>
-<li><p>Did it fail?
-–</p>
+<li><p>Run the test</p></li>
+<li><p>Did it fail?</p>
 <ul>
-<li><p>The first time it fails because the function does not exist
-–</p></li>
-<li><p>Add code to the function with the purpose of passing the test and nothing more
-–</p></li>
-<li><p>Start over
-–</p></li>
+<li><p>The first time it fails because the function does not exist</p></li>
+<li><p>Add code to the function with the purpose of passing the test and nothing more</p></li>
+<li><p>Start over</p></li>
 </ul>
 </li>
-<li><p>Did it pass?
-–</p>
+<li><p>Did it pass?</p>
 <ul>
-<li><p>Stop
-–</p></li>
+<li><p>Stop</p></li>
 <li><p>Do not write more code. You are done.</p></li>
 </ul>
 </li>
@@ -824,26 +797,32 @@ OK
 </div>
 <p>Each dot represents a passed test, an <code class="docutils literal notranslate"><span class="pre">F</span></code> is a failed test</p>
 <p>or verbose</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    $ nosetests -v testdiv_alt.py
-    Test integer division ... ok
-    Test floating point division ... ok
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pytest -v testdiv_alt.py
+============================= test session starts ==============================
+platform linux -- Python 3.12.0, pytest-8.3.3, pluggy-1.5.0 -- /home/olav/.pyenv/versions/slides/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/olav/Courses/comppy/slides/testing
+plugins: cov-6.0.0, anyio-4.3.0
+collecting ... collected 2 items
 
-    ----------------------------------------------------------------------
-    Ran 2 tests in 0.002s
+test_div.py::test_div3 PASSED                                            [ 50%]
+test_div.py::test_div4 PASSED                                            [100%]
 
-    OK
+============================== 2 passed in 0.02s ===============================
+
+
 </pre></div>
 </div>
 <p><em>Note:</em> docstring is used in the  error report</p>
 </section>
 <hr class="docutils" />
-<section id="nosetests-and-the-debugger">
-<h3>Nosetests and the debugger<a class="headerlink" href="#nosetests-and-the-debugger" title="Link to this heading">#</a></h3>
+<section id="pytest-and-the-debugger">
+<h3>Pytest and the debugger<a class="headerlink" href="#pytest-and-the-debugger" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>By running nosetests with a debug option, it runs all tests.</p></li>
+<li><p>By running pytest with a debug option, it runs all tests.</p></li>
 <li><p>When a test fails the program stops and launches the debugger where the error condition was detected</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    $ nosetests  test_calculate.py  --pdb
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    $ pytest  test_calculate.py  --pdb
     .&gt; /usr/lib/python2.7/unittest/case.py(508)_baseAssertEqual()
     -&gt; raise self.failureException(msg)
     (Pdb)
@@ -858,26 +837,10 @@ OK
 </div>
 </section>
 <hr class="docutils" />
-<section id="nosetest-and-coverage">
-<h3>Nosetest and coverage<a class="headerlink" href="#nosetest-and-coverage" title="Link to this heading">#</a></h3>
+<section id="pytest-and-coverage">
+<h3>Pytest and coverage<a class="headerlink" href="#pytest-and-coverage" title="Link to this heading">#</a></h3>
 <p>coverage is a relative measure of how many of your lines of codes have been executed during the tests</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    $ nosetests test_calculate.py --with-coverage
-    .F
-    ======================================================================
-    FAIL: testsub (test_calculate.TestCalculate)
-    ----------------------------------------------------------------------
-    Traceback (most recent call last):
-      File &quot;/home/olav/Dropbox/Python/hieroglyph/test_calculate.py&quot;, line 18, in testsub
-	self.assertEqual(res, 0)
-    AssertionError: 2 != 0
-
-    Name        Stmts   Miss  Cover   Missing
-    -----------------------------------------
-    calculate      10      3    70%   25, 28-29
-    ----------------------------------------------------------------------
-    Ran 2 tests in 0.001s
-
-    FAILED (failures=1)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    $ pytest test_calculate.py --cov calculate
 </pre></div>
 </div>
 <p>We get a list over all modules that have been executed and, how many lines,
@@ -999,127 +962,14 @@ and which lines that we missed</p>
 </pre></div>
 </div>
 <p>Open in browser</p>
-<img src="cov1.png" height="250">
-<img src="cov2.png" height="250">
-</section>
-<hr class="docutils" />
-<section id="fixtures">
-<h2>Fixtures<a class="headerlink" href="#fixtures" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">test_1.py</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
-
-<span class="k">def</span> <span class="nf">setup</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;         setup&#39;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">setup_function</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">   setup_function&#39;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">setup_module</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">setup_module&#39;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">teardown</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">         teardown&#39;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">teardown_function</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   teardown_function&#39;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">teardown_module</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;teardown_module&#39;</span><span class="p">)</span>
-
-</pre></div>
-</div>
-<p>setup and teardown functions that are run before and after each test</p>
-<hr class="docutils" />
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="o">...&gt;</span> <span class="n">py</span><span class="o">.</span><span class="n">test</span> <span class="n">test_1</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">vs</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_1</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_f</span> 
-<span class="n">setup_module</span>
-
-   <span class="n">setup_function</span>
-         <span class="n">setup</span>
-<span class="n">PASSED</span>
-         <span class="n">teardown</span>
-   <span class="n">teardown_function</span>
-
-<span class="n">test_1</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_g</span> 
-   <span class="n">setup_function</span>
-         <span class="n">setup</span>
-<span class="n">PASSED</span>
-         <span class="n">teardown</span>
-   <span class="n">teardown_function</span>
-<span class="n">teardown_module</span>
-
-</pre></div>
-</div>
-<hr class="docutils" />
-<p><code class="docutils literal notranslate"><span class="pre">test_2.py</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span> <span class="nf">before</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;      before&#39;</span><span class="p">)</span>
-    <span class="k">yield</span> <span class="kc">None</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;      after&#39;</span><span class="p">)</span>
-
-<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-<span class="k">def</span> <span class="nf">return_value</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;      return_value&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">*</span><span class="n">request</span><span class="o">.</span><span class="n">param</span>
-
-<span class="k">def</span> <span class="nf">test_this</span><span class="p">(</span><span class="n">before</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;            &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">test_that</span><span class="p">(</span><span class="n">return_value</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;            &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">return_value</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>more advanced pytest features</p></li>
-</ul>
-<hr class="docutils" />
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="o">...&gt;</span> <span class="n">py</span><span class="o">.</span><span class="n">test</span> <span class="n">test_2</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">vs</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_2</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_this</span> 
-<span class="n">setup_module</span>
-
-   <span class="n">setup_function</span>
-      <span class="n">before</span>
-         <span class="n">setup</span>
-            <span class="n">PASSED</span>
-         <span class="n">teardown</span>
-      <span class="n">after</span>
-   <span class="n">teardown_function</span>
-
-<span class="n">test_2</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_that</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> 
-   <span class="n">setup_function</span>
-      <span class="n">return_value</span>
-         <span class="n">setup</span>
-            <span class="mf">3.14</span><span class="n">PASSED</span>
-         <span class="n">teardown</span>
-   <span class="n">teardown_function</span>
-
-<span class="n">test_2</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_that</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> 
-   <span class="n">setup_function</span>
-      <span class="n">return_value</span>
-         <span class="n">setup</span>
-            <span class="mf">6.28</span><span class="n">PASSED</span>
-         <span class="n">teardown</span>
-   <span class="n">teardown_function</span>
-<span class="n">teardown_module</span>
-
-</pre></div>
-</div>
-<hr class="docutils" />
+<img src="img/cov1.png" height="250">
+<img src="img/cov2.png" height="250">
 <hr class="docutils" />
 <section id="recommendation">
 <h3>Recommendation<a class="headerlink" href="#recommendation" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">doctest</span></code> for small illustrations, if any</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">unittest</span></code> to code your tests,</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">nosetests</span></code> or <code class="docutils literal notranslate"><span class="pre">py.test</span></code> to execute your tests, optionally with debugging and coverage</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">pytest</span></code> to execute your tests, optionally with debugging and coverage</p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -1137,8 +987,8 @@ and which lines that we missed</p>
 <section id="links">
 <h3>Links<a class="headerlink" href="#links" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="http://pythontesting.net/podcast/pytest-vs-unittest-vs-nose-pt002/">http://pythontesting.net/podcast/pytest-vs-unittest-vs-nose-pt002/</a></p></li>
-<li><p><a class="reference external" href="http://mathieu.agopian.info/presentations/2015_06_djangocon_europe">http://mathieu.agopian.info/presentations/2015_06_djangocon_europe</a></p></li>
+<li><p><a class="reference external" href="https://pytest.org">https://pytest.org</a></p></li>
+<li><p><a class="reference external" href="https://testandcode.com">https://testandcode.com</a></p></li>
 </ul>
 </section>
 </section>
@@ -1174,6 +1024,15 @@ and which lines that we missed</p>
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../git/talk.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Version Control: git</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -1190,10 +1049,7 @@ and which lines that we missed</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#olav-vahtras">Olav Vahtras</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-testing">Why testing?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tdd-test-driven-development">TDD = Test-Driven Development</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-special-about-tdd">What’s special about TDD</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-tdd-in-practice">What is TDD in practice?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize">Initialize</a></li>
 </ul>
@@ -1227,15 +1083,14 @@ and which lines that we missed</p>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-pytest">Running <code class="docutils literal notranslate"><span class="pre">pytest</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nosetests-and-the-debugger">Nosetests and the debugger</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nosetest-and-coverage">Nosetest and coverage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest-and-the-debugger">Pytest and the debugger</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest-and-coverage">Pytest and coverage</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Pytest</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-coverage">Test coverage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fixtures">Fixtures</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-coverage">Test coverage</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommendation">Recommendation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-tip">Final tip</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#links">Links</a></li>
@@ -1255,7 +1110,7 @@ and which lines that we missed</p>
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Olav Vahtras
 </p>
 
   </div>

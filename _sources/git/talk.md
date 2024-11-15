@@ -16,14 +16,16 @@ layout: false
 
 * Why we choose use git
 
+* Know about the basic components 
+    - work directory
+    - staging area
+    - local repository
+    - remote repository
+
 * Know the basic elements of git workflow
     - How to save history
     - How to undo mistakes
-    - Know about the basic components 
-        + work directory
-        + staging area
-        + local repository
-        + remote repository
+    - How to collabrate
 
 
 ---
@@ -72,39 +74,12 @@ $ cp -r Project Project.save.v2.new
 * A file-level local version control system
 * Can be used by multiple collaborators on a shared file system
 
-```bash
-$ date > latest_update.txt
-$ ci latest_update.txt
-latest_update.txt,v  <--  latest_update.txt
-enter description, terminated with single '.' or end of file:
-NOTE: This is NOT the log message!
->> .
-initial revision: 1.1
-done
-```
-```
-$ ls -l
--r--r--r-- 1 olav olav 207 Apr 13 05:24 latest_update.txt,v
-```
-```
-$ co -l ./latest_update.txt 
-./latest_update.txt,v  -->  ./latest_update.txt
-revision 1.1 (locked)
-done
-```
----
-
-## Version control systems of the past
 ### CVS (Concurrent Versions System)
 
 * First project-level (> 1 file) version-control
 * A central server
 * Users could checkout project files to work with
 * Users needed contact with the server to save work and compare work
-
----
-
-## Version control systems of the past
 
 ### Subversion (svn)
 
@@ -121,9 +96,9 @@ done
 
 * Written by Linus Thorvalds, originally for the Linux kernel
 * A distributed VCS
-* Several servers have all information
+* All members have all information
 * Any one can be chosen as the reference version
-* One of the most popular frameworks today (others: bazaar, mercurial)
+* One of the most popular frameworks today (other similar: bazaar, mercurial)
 
 ---
 
@@ -145,6 +120,31 @@ done
 * Easy to backup to other sites
 
 
+---
+## Concepts
+
+Three different file areas
+* Work directory: local directory where you work
+* Staging area/Cache: temporary area for files you intend to keep
+* Repository: sequence/tree of saved versions (commits)
+
+### 11 basic commands
+
+* Initialize
+    - clone *get copy of a project*
+    - init  *start new project*
+* Queries
+    - status *are there changes *
+    - log *summary of latest versions*
+    - diff *what has changed, if any?*
+* Changing locally
+    - add  *add a file to the staging area*
+    - commit *save the staging area to the repository*
+    - merge *combine two branches*
+* Remote interaction
+    - push *send changes to remote repository*
+    - fetch *get changes from remote repository*
+    - pull *fetch and merge changes from remote repository*
 
 ---
 
@@ -170,65 +170,73 @@ Creates a configuration file ``~/.gitconfig``
 ### Initializing a repository
 
 * Use an existing directory or create a new project directory
-```
+```bash
     $ mkdir proj
 ```
+<pre class="foo">
+proj/
+</pre>
 
 * Go to the directory and initialize
-```
-    $ cd proj
-    $ git init
-    Initialized empty Git repository in /tmp/proj/.git/
-    $ ls -a
-    .  ..  .git
-```
+<pre class="output">
+    $ cd proj && git init .
+    Initialized empty Git repository in ...proj/.git/
+</pre>
+<pre class="foo">
+    proj/
+    └── .git
+</pre>
 
 * Check repository status
-```
+<pre class="output">
+    $ cd proj
     $ git status
     On branch master
 
     Initial commit
 
     nothing to commit (create/copy files and use "git add" to track)
-```
+</pre>
 
 ---
 
 ### Adding files
 
 * Create a new file
+<pre class="foo">
+proj
+├── .git
+└── <text style="color: red;">hello.py</text>
+</pre>
+
 ```
-    $ cat << EOF > hello.py
-    print "Hello world!"
-    EOF
-    $ python hello.py
-    Hello world!
+# hello.py
+print("Hello world!")
 ```
 * Recheck status
-```
-    $ git status
-    On branch master
 
-    Initial commit
+<pre class="output">
+$ git status
+On branch master
 
-    Untracked files:
-      (use "git add <file>..." to include in what will be committed)
+Initial commit
 
-	    hello.py
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
 
-    nothing added to commit but untracked files present (use "git add" to track)
-```
+      <text style="color: red;">hello.py</text>
 
+nothing added to commit but untracked files present (use "git add" to track)
+</pre>
 ---
 
 
-### Untracked files
+### Add file to git
 
 
 * ``git`` warns about files in the project directory that Git is not keeping track of
 * To tell git to do so
-```
+<pre class="output">
     $ git add hello.py
     $ git status
     On branch master
@@ -238,8 +246,13 @@ Creates a configuration file ``~/.gitconfig``
     Changes to be committed:
       (use "git rm --cached <file>..." to unstage)
 
-	    new file:   hello.py
-```
+        <span style="color: green;">new file:   hello.py</span>
+</pre>
+<pre class="foo">
+proj
+├── .git
+└── <text style="color: green;">hello.py</text>
+</pre>
 
 ---
 
@@ -249,18 +262,21 @@ Creates a configuration file ``~/.gitconfig``
 
 ### The repository
 * Save the latest changes in the local repository (``.git`` directory)
-```
-    $ git commit -m "First hello"
-    [master (root-commit) edf197e] First hello
-     1 file changed, 1 insertion(+)
-     create mode 100644 hello.py
-```
+
+<pre class="output">
+$ git commit -m "First hello"
+[master (root-commit) edf197e] First hello
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.py
+</pre>
+
 * Check the status again
-```
-    $ git status
-    On branch master
-    nothing to commit, working directory clean
-```
+
+<pre class="output">
+$ git status
+On branch master
+nothing to commit, working directory clean
+</pre>
 
 ---
 
@@ -289,11 +305,6 @@ A single file may be represented att all levels
 
 
 The basic work cycle is edit-add-commit
-```
-    $ vim <file> #edit
-    $ git add <file> #adds new file or saves latest changes
-    $ git commit -m <message> <file> #save permanently in repository
-```
 
 ---
 
@@ -331,6 +342,7 @@ To see the commit history of the project files
 
     no changes added to commit (use "git add" and/or "git commit -a")
 ```
+---
 ```
     $ git diff
     diff --git a/hello.py b/hello.py
@@ -341,13 +353,6 @@ To see the commit history of the project files
     -print "Hello world!"
     +print "Hello there world!"
 ```
----
-```
-    $ git difftool
-```
-
-<img src="img/git_difftool.png"/>
-
 ---
 
 ### Update repository
@@ -376,13 +381,6 @@ To see the commit history of the project files
 
 ---
 
-### Graphical frontends
-```
-    $ gitg
-```
-<center><img src="img/gitg.png" height="480"/></center>
-
----
 
 ### Recovering old work
 * To retreive old verions, use checkout with the commit string
@@ -604,14 +602,21 @@ work directory     <- init, clone
 
 ### Use a remote server (service)
 
-* github.com (free for public projects)
-* gitlab.com  (free for public and private projects)
+* github.com
+* gitlab.com
+
+---
+## Github workflow scheme
+
+<img src="https://lh3.googleusercontent.com/e56nmW1H1vOmGoR0EVswqus0EcCFMPjefwrFDc6KS5Gm2Yc7P1VEy9WrxHu7iqkst6t-WFhhpXYqhwcY1cOAPUNLbimPm7Uvkl4ZanbNKed-wqFs1eae_hLvDB0jdko0hfNibGl7FA=w2400" height=600>
+
+Drawing by Erik Fasterius
+
+---
 
 ### Links
 
 * http://git-scm.com/book
 * http://swcarpentry.github.io/git-novice/
-* http://www.linux.com/news/featured-blogs/185-jennifer-cloer/821541-10-years-of-git-an-interview-with-git-creator-linus-torvalds
 * https://gun.io/blog/how-to-github-fork-branch-and-pull-request/
 * http://christoph.ruegg.name/blog/git-howto-revert-a-commit-already-pushed-to-a-remote-reposit.html
-* http://git-man-page-generator.lokaltog.net/
