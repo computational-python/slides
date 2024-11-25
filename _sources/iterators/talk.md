@@ -1,8 +1,6 @@
 # Introduction to iterators
 
-## Olav Vahtras
-
-KTH
+Computational Python
 
 ---
 
