@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introduction to iterators &#8212; My sample book</title>
+    <title>Introduction to iterators &#8212; Lecture slides in Computational Python</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -58,9 +58,9 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'iterators/talk';</script>
-    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Classes" href="../classes/talk.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +122,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -140,14 +138,20 @@
 
   
 
-<a class="navbar-brand logo" href="../intro.html">
+<a class="navbar-brand logo" href="../index.html">
   
   
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/KTH_Logotyp_RGB_2013.png" class="logo__image only-light" alt="Lecture slides in Computational Python - Home"/>
+    <script>document.write(`<img src="../_static/KTH_Logotyp_RGB_2013.png" class="logo__image only-dark" alt="Lecture slides in Computational Python - Home"/>`);</script>
   
-    <p class="title logo__title">My sample book</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -166,12 +170,17 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
+                <a class="reference internal" href="../index.html">
                     Lecture slides for Computational Python
                 </a>
             </li>
         </ul>
-        
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/talk.html">Introduction to Python</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../git/talk.html">Version Control: git</a></li>
+</ul>
+
     </div>
 </nav></div>
     </div>
@@ -384,6 +393,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterator-in-for-loop">Iterator in for loop</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-fibonacci">Example: fibonacci</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-to-list">Convert to list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
 </li>
 </ul>
@@ -433,24 +443,39 @@ document.write(`
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dct</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dct</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">dct</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+<span class="gp">... </span>    <span class="n">value</span> <span class="o">=</span> <span class="n">dct</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 <span class="go">a 1</span>
 <span class="go">b 2</span>
 
 </pre></div>
 </div>
-<p>–</p>
+<ul class="simple">
+<li><p>many objects have methods which return alternative iterators</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">dct</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">pair</span><span class="p">)</span>
+<span class="go">(&#39;a&#39;, 1)</span>
+<span class="go">(&#39;b&#39;, 2)</span>
+
+</pre></div>
+</div>
 </section>
+<hr class="docutils" />
 <section id="strings-support-iteration">
 <h4>Strings support iteration<a class="headerlink" href="#strings-support-iteration" title="Link to this heading">#</a></h4>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s1">&#39;a str&#39;</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s1">&#39;a string&#39;</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
 <span class="go">a</span>
 
 <span class="go">s</span>
 <span class="go">t</span>
 <span class="go">r</span>
+<span class="go">i</span>
+<span class="go">n</span>
+<span class="go">g</span>
 
+<span class="go">```</span>
 </pre></div>
 </div>
 </section>
@@ -462,11 +487,11 @@ document.write(`
 14
 
 -->
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>123
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>123
 ┌─────┐
-│one   │
-│two   │
-│three │
+│one    │
+│two    │
+│three  │
 └─────┘
 </pre></div>
 </div>
@@ -524,6 +549,12 @@ document.write(`
 <hr class="docutils" />
 <section id="objects-supporting-iteration-protocol">
 <h3>Objects supporting iteration protocol<a class="headerlink" href="#objects-supporting-iteration-protocol" title="Link to this heading">#</a></h3>
+<p>Roughly the iter and next builtin functions delegate to the methods of the
+object</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">iter</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">obj</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">obj</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+</pre></div>
+</div>
 <ul class="simple">
 <li><p><em>iterables</em> have a method <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> which returns an iterator</p></li>
 <li><p>the <em>iterator</em> has a method <code class="docutils literal notranslate"><span class="pre">__next__()</span></code> producing the next sequence value</p></li>
@@ -647,6 +678,7 @@ document.write(`
 </pre></div>
 </div>
 </section>
+<hr class="docutils" />
 <section id="iterator-in-for-loop">
 <h3>Iterator in for loop<a class="headerlink" href="#iterator-in-for-loop" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span>  <span class="n">i</span> <span class="ow">in</span> <span class="n">g</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
@@ -662,47 +694,40 @@ document.write(`
 </pre></div>
 </div>
 </section>
+<hr class="docutils" />
 <section id="example-fibonacci">
 <h3>Example: fibonacci<a class="headerlink" href="#example-fibonacci" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="gp">... </span>    <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">... </span>    <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">... </span>    <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">... </span>    <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
 <span class="gp">... </span>        <span class="k">yield</span> <span class="n">a</span>
 <span class="gp">... </span>        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fib</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="go">1 2 3 </span>
+<span class="go">0 1 1 2 3 </span>
 
 </pre></div>
 </div>
 </section>
 <section id="convert-to-list">
 <h3>Convert to list<a class="headerlink" href="#convert-to-list" title="Link to this heading">#</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">It</span> <span class="ow">is</span> <span class="n">always</span> <span class="n">possible</span> <span class="n">to</span> <span class="n">convert</span> <span class="n">a</span> <span class="n">generator</span> <span class="n">to</span> <span class="n">a</span> <span class="nb">list</span>
-
+<p>It is always possible to convert a generator to a list</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">fib</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="go">[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]</span>
 
 </pre></div>
 </div>
-<blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><p>print(list(fib(100)))
-[1, 2, 3, 5, 8, 13, 21, 34, 55, 89]</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
----
-
-### Summary
-
-* Several common types support iteration (list, dict, file, str)
-* Objects support iteration have an `__iter__` function returning an iterable
-* The iterables have a `next` method that steps through some sequence
-* Generators are functions with a `yield` statement and work like iterators
-</pre></div>
-</div>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Several common types support iteration (list, dict, file, str)</p></li>
+<li><p>Objects support iteration have an <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> function returning an iterable</p></li>
+<li><p>The iterables have a <code class="docutils literal notranslate"><span class="pre">__next__</span></code> method that steps through some sequence</p></li>
+<li><p>Generators are returned by functions with a <code class="docutils literal notranslate"><span class="pre">yield</span></code> statement, a special case of iterators</p></li>
+</ul>
 </section>
 </section>
 </section>
@@ -737,6 +762,15 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../classes/talk.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Classes</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -772,6 +806,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterator-in-for-loop">Iterator in for loop</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-fibonacci">Example: fibonacci</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-to-list">Convert to list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
 </li>
 </ul>
@@ -788,7 +823,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Olav Vahtras
 </p>
 
   </div>

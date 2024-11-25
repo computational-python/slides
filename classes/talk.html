@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Classes &#8212; My sample book</title>
+    <title>Classes &#8212; Lecture slides in Computational Python</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -58,9 +58,10 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'classes/talk';</script>
-    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to iterators" href="../iterators/talk.html" />
+    <link rel="prev" title="Testing" href="../testing/talk.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +123,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -140,14 +139,20 @@
 
   
 
-<a class="navbar-brand logo" href="../intro.html">
+<a class="navbar-brand logo" href="../index.html">
   
   
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/KTH_Logotyp_RGB_2013.png" class="logo__image only-light" alt="Lecture slides in Computational Python - Home"/>
+    <script>document.write(`<img src="../_static/KTH_Logotyp_RGB_2013.png" class="logo__image only-dark" alt="Lecture slides in Computational Python - Home"/>`);</script>
   
-    <p class="title logo__title">My sample book</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -166,12 +171,17 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
+                <a class="reference internal" href="../index.html">
                     Lecture slides for Computational Python
                 </a>
             </li>
         </ul>
-        
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/talk.html">Introduction to Python</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../git/talk.html">Version Control: git</a></li>
+</ul>
+
     </div>
 </nav></div>
     </div>
@@ -365,14 +375,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-and-functions">Variables and Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects-and-classes">Objects and Classes</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-functions">Data and functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure-oriented-programming">Procedure Oriented Programming</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects-and-classes">Objects and Classes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objects">Objects</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-oriented-programming">Object Oriented Programming</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-definition-in-python">Class definition in Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-objects-in-a-program">Using objects in a program</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instance-attributes-vs-class-attributes">Instance attributes vs Class attributes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-encapsulation-in-object-oriented-programming">Data encapsulation in object oriented programming</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-methods-and-overloading">Special methods and overloading</a></li>
@@ -405,118 +416,113 @@ document.write(`
 <h1>Classes<a class="headerlink" href="#classes" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <p>layout: false</p>
-<section id="variables-and-functions">
-<h2>Variables and Functions<a class="headerlink" href="#variables-and-functions" title="Link to this heading">#</a></h2>
-<p>DATA: Variables</p>
+<section id="data-and-functions">
+<h2>Data and functions<a class="headerlink" href="#data-and-functions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>State: Data</p></li>
+</ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">str1</span> <span class="o">=</span> <span class="s2">&quot;Hello World!&quot;</span>
 <span class="n">str2</span> <span class="o">=</span> <span class="s2">&quot;Python Programming&quot;</span>
 <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;physics&#39;</span><span class="p">,</span> <span class="s1">&#39;chemistry&#39;</span><span class="p">,</span> <span class="mi">1997</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Actions: Functions</p>
+<ul class="simple">
+<li><p>Actions: Functions</p></li>
+</ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">printinfo</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name&quot;</span> <span class="p">,</span> <span class="n">name</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">printinfo</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
+<span class="go">Name John</span>
+<span class="go">Age 35</span>
+</pre></div>
+</div>
+<section id="procedure-oriented-programming">
+<h3>Procedure Oriented Programming<a class="headerlink" href="#procedure-oriented-programming" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>programs are made up of functions and data</p></li>
+<li><p>suitable for small/medium programs</p></li>
+</ul>
+</section>
 </section>
 <hr class="docutils" />
 <section id="objects-and-classes">
 <h2>Objects and Classes<a class="headerlink" href="#objects-and-classes" title="Link to this heading">#</a></h2>
-<section id="procedure-oriented-programming">
-<h3>Procedure Oriented Programming<a class="headerlink" href="#procedure-oriented-programming" title="Link to this heading">#</a></h3>
+<section id="objects">
+<h3>Objects<a class="headerlink" href="#objects" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>functions and variables used to make program</p></li>
-<li><p>suitable for small/medium programs</p></li>
+<li><p>objects merge data and functions into one unit</p></li>
+<li><p>objects have attributes (object.attribute)</p>
+<ul>
+<li><p>data attributes</p></li>
 </ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">.</span><span class="n">imag</span>
+<span class="go">2.0</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- methods (functions)
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+<span class="go">(1-2j)</span>
+</pre></div>
+</div>
 </section>
 <section id="object-oriented-programming">
 <h3>Object Oriented Programming<a class="headerlink" href="#object-oriented-programming" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>objects used to make program</p></li>
+<li><p>programs are made of of objects</p></li>
 <li><p>suitable for large programs</p></li>
 </ul>
-<p><strong>Everything in Python is an <em>object</em>, and almost everything has attributes
-(data) and methods (functions for manipulating data)</strong></p>
 <hr class="docutils" />
-<p>##Objects and Classes</p>
-<p>Class - blueprint for creation of an object</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">given_name</span><span class="p">,</span> <span class="n">surname</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">given_name</span> <span class="o">=</span> <span class="n">given_name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">surname</span> <span class="o">=</span> <span class="n">surname</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Person: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">given_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">surname</span><span class="si">}</span><span class="s2">&quot;</span>
-
+<p>###Classes</p>
+<ul class="simple">
+<li><p>Class - blueprint for creation of an object (an instance of the class)</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="n">last_name</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Person: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last_name</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>objects are created by calling the class as a function</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Person</span><span class="p">(</span><span class="s2">&quot;James&quot;</span><span class="p">,</span> <span class="s2">&quot;Bond&quot;</span><span class="p">)</span>
+<span class="go">Person: James Bond</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>when an instance method is called, the object is passed as the first argument
+(usually called <code class="docutils literal notranslate"><span class="pre">self</span></code>)</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;James&quot;</span><span class="p">,</span> <span class="s2">&quot;Bond&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
+<span class="go">Person: James Bond</span>
 </pre></div>
 </div>
 </section>
-</section>
-<section id="class-definition-in-python">
-<h2>Class definition in Python<a class="headerlink" href="#class-definition-in-python" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Name</span><span class="p">:</span>
-    <span class="o">...</span>
-</pre></div>
-</div>
-<p>##Most important special method is a <em>constuctor</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">&lt;</span><span class="nb">list</span> <span class="n">of</span> <span class="n">parameters</span><span class="o">&gt;</span><span class="p">):</span>
-    <span class="o">...</span>
-</pre></div>
-</div>
-<hr class="docutils" />
-<p>##Objects and classes</p>
-<p>###Ordinary class methods are defined as</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">name_of_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">&lt;</span><span class="nb">list</span> <span class="n">of</span> <span class="n">paramters</span><span class="o">&gt;</span><span class="p">):</span>
-    <span class="o">...</span>
-</pre></div>
-</div>
-<p>###self is passed to all class methods and has the following meaning</p>
-<ul class="simple">
-<li><p>In the constructor init refers to newly created object</p></li>
-<li><p>In ordinary class methods it refers to the object for this method is called</p></li>
-</ul>
-<p><em>Note: the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is often called a constructor, in analogy with
-other OO languages, but the object has already been constructed entring the
-function and is refered to with by the <code class="docutils literal notranslate"><span class="pre">self</span></code> variable. Initializer would be a
-more correct description</em></p>
-<hr class="docutils" />
-<p>##Objects and Classes</p>
-</section>
-<section id="using-objects-in-a-program">
-<h2>Using objects in a program<a class="headerlink" href="#using-objects-in-a-program" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>creating an <strong>instance</strong> of an object in a program</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Adam&quot;</span><span class="p">,</span> <span class="s2">&quot;Smith&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>accessing instance attributes in a program</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">given_name</span> <span class="o">=</span> <span class="s1">&#39;John&#39;</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>calling instance methods in a program</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">display_person</span><span class="p">()</span>
-</pre></div>
-</div>
 </section>
 <hr class="docutils" />
 <section id="instance-attributes-vs-class-attributes">
 <h2>Instance attributes vs Class attributes<a class="headerlink" href="#instance-attributes-vs-class-attributes" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
-    <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># class attribute</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">given_name</span><span class="p">,</span> <span class="n">surname</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">given_name</span> <span class="o">=</span> <span class="n">given_name</span>  <span class="c1"># instance attribute</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">surname</span> <span class="o">=</span> <span class="n">surname</span>        <span class="c1"># instance attribute</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1">#class attribute</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span> <span class="c1">#instance attribute</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="n">last_name</span>
         <span class="n">Person</span><span class="o">.</span><span class="n">number</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Person: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">given_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">surname</span><span class="si">}</span><span class="s2">&quot;</span>
-
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Person: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last_name</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -857,6 +863,24 @@ with a class name prefix. They do not depend on an instance, and do not have a
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../testing/talk.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Testing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../iterators/talk.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to iterators</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -873,14 +897,15 @@ with a class name prefix. They do not depend on an instance, and do not have a
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-and-functions">Variables and Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects-and-classes">Objects and Classes</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-functions">Data and functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure-oriented-programming">Procedure Oriented Programming</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects-and-classes">Objects and Classes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objects">Objects</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-oriented-programming">Object Oriented Programming</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-definition-in-python">Class definition in Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-objects-in-a-program">Using objects in a program</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instance-attributes-vs-class-attributes">Instance attributes vs Class attributes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-encapsulation-in-object-oriented-programming">Data encapsulation in object oriented programming</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-methods-and-overloading">Special methods and overloading</a></li>
@@ -902,7 +927,7 @@ with a class name prefix. They do not depend on an instance, and do not have a
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Olav Vahtras
 </p>
 
   </div>

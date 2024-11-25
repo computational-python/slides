@@ -31,29 +31,44 @@ lists have square brackets: []
 #### Dictionaries support iteration
 
 * The loop variable is the key of the key-value pair
-
-```
+~~~
 >>> dct = {'a':1, 'b':2}
 >>> for key in dct:
-...     print(key, dct[key])
+...     value = dct[key]
+...     print(key, value)
 a 1
 b 2
 
-```
---
+~~~
+
+* many objects have methods which return alternative iterators
+~~~
+>>> for pair in dct.items():
+...     print(pair)
+('a', 1)
+('b', 2)
+
+~~~
+
+---
 
 #### Strings support iteration
 
-```
->>> for char in 'a str':
+~~~
+>>> for char in 'a string':
 ...     print(char)
 a
 <BLANKLINE>
 s
 t
 r
+i
+n
+g
 
 ```
+~~~
+
 ---
 
 #### File objects  support iteration
@@ -65,12 +80,14 @@ r
 
 -->
 
-    123
-    ┌─────┐
-    │one   │
-    │two   │
-    │three │
-    └─────┘
+~~~
+123
+┌─────┐
+│one    │
+│two    │
+│three  │
+└─────┘
+~~~
 
 ~~~
 >>> for row in open('123'):
@@ -126,6 +143,14 @@ StopIteration
 ---
 
 ### Objects supporting iteration protocol
+
+Roughly the iter and next builtin functions delegate to the methods of the
+object
+
+~~~
+iter(obj) -> obj.__iter__()
+next(obj) -> obj.__next__()
+~~~
 
 * *iterables* have a method `__iter__()` which returns an iterator
 * the *iterator* has a method `__next__()` producing the next sequence value
@@ -254,6 +279,8 @@ StopIteration
 
 ```
 
+---
+
 ### Iterator in for loop
 
 ```
@@ -269,33 +296,34 @@ after while
 
 ```
 
+---
+
 ### Example: fibonacci
 
 
-```
+~~~
 >>> def fib(n):
-...     a = 1
-...     b = 2
+...     a = 0
+...     b = 1
 ...     while a < n:
 ...         yield a
 ...         a, b = b, a + b
 >>> for i in fib(5):
 ...     print(i, end=" ")
-1 2 3 
+0 1 1 2 3 
 
-```
+~~~
 
 ### Convert to list
 
-```
 It is always possible to convert a generator to a list
 
 
-```
->>> print(list(fib(100)))
-[1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+~~~
+>>> list(fib(100))
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 
-```
+~~~
 
 ---
 
@@ -303,5 +331,5 @@ It is always possible to convert a generator to a list
 
 * Several common types support iteration (list, dict, file, str)
 * Objects support iteration have an `__iter__` function returning an iterable
-* The iterables have a `next` method that steps through some sequence
-* Generators are functions with a `yield` statement and work like iterators
+* The iterables have a `__next__` method that steps through some sequence
+* Generators are returned by functions with a `yield` statement, a special case of iterators

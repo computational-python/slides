@@ -16,131 +16,104 @@
 layout: false
 
 
-## Variables and Functions
+## Data and functions
 
-DATA: Variables
+* State: Data
+
 ~~~python
 str1 = "Hello World!"
 str2 = "Python Programming"
 lst = ['physics', 'chemistry', 1997, 2000]
 ~~~
 
-Actions: Functions
+* Actions: Functions
+
 ~~~python
 def printinfo(name, age):
     print("Name" , name)
     print("Age", age)
 ~~~
 
+~~~
+>>> printinfo("John", 35)
+Name John
+Age 35
+~~~
+
+### Procedure Oriented Programming
+
+* programs are made up of functions and data
+* suitable for small/medium programs
+
 ---
 
 ## Objects and Classes
 
-### Procedure Oriented Programming
+### Objects
 
-* functions and variables used to make program
-* suitable for small/medium programs
+* objects merge data and functions into one unit
+* objects have attributes (object.attribute)
+    - data attributes
+~~~
+>>> z = 1+2j
+>>> z.imag
+2.0
+~~~
+    - methods (functions)
+~~~
+>>> z.conjugate()
+(1-2j)
+~~~
 
 ### Object Oriented Programming
 
-* objects used to make program
+* programs are made of of objects
 * suitable for large programs
 
-**Everything in Python is an *object*, and almost everything has attributes
-(data) and methods (functions for manipulating data)**
 
 ---
 
-##Objects and Classes
+###Classes
 
-Class - blueprint for creation of an object
-
-
-~~~python
-class Person:
-    def __init__(self, given_name, surname):
-        self.given_name = given_name
-        self.surname = surname
-
-    def __str__(self):
-        return f"Person: {self.given_name} {self.surname}"
-
+* Class - blueprint for creation of an object (an instance of the class)
+~~~
+>>> class Person:
+...     def __init__(self, first_name, last_name):
+...         self.first_name = first_name
+...         self.last_name = last_name
+...
+...     def __repr__(self):
+...         return f"Person: {self.first_name} {self.last_name}"
 ~~~
 
-## Class definition in Python
-
+* objects are created by calling the class as a function
 ~~~
-class Name:
-    ...
-~~~
-
-##Most important special method is a *constuctor*
-
-~~~
-def __init__(self, <list of parameters>):
-    ...
+>>> Person("James", "Bond")
+Person: James Bond
 ~~~
 
----
-
-##Objects and classes
-
-###Ordinary class methods are defined as
-
+* when an instance method is called, the object is passed as the first argument
+  (usually called `self`)
 ~~~
-def name_of_method(self, <list of paramters>):
-    ...
-~~~
-
-###self is passed to all class methods and has the following meaning
-
-* In the constructor init refers to newly created object
-* In ordinary class methods it refers to the object for this method is called
-
-*Note: the `__init__` method is often called a constructor, in analogy with
-other OO languages, but the object has already been constructed entring the
-function and is refered to with by the `self` variable. Initializer would be a
-more correct description*
-
----
-
-##Objects and Classes
-
-## Using objects in a program
-
-* creating an **instance** of an object in a program
-
-~~~python
-p = Person("Adam", "Smith")
-~~~
-
-* accessing instance attributes in a program
-
-~~~python
-p.given_name = 'John'
-~~~
-
-* calling instance methods in a program
-
-~~~python
-p.display_person()
+>>> p = Person("James", "Bond")
+>>> p.__repr__()
+Person: James Bond
 ~~~
 
 ---
 
 ## Instance attributes vs Class attributes
 
-~~~python
+~~~
 class Person:
-    number = 0  # class attribute
-    def __init__(self, given_name, surname):
-        self.given_name = given_name  # instance attribute
-        self.surname = surname        # instance attribute
+    number = 0  #class attribute
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name #instance attribute
+        self.last_name = last_name
         Person.number += 1
 
-    def __str__(self):
-        return f"Person: {self.given_name} {self.surname}"
-
+    def __repr__(self):
+        return f"Person: {self.first_name} {self.last_name}"
 ~~~
 
 * class attributes are shared by instances
