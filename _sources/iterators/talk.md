@@ -29,6 +29,7 @@ lists have square brackets: []
 #### Dictionaries support iteration
 
 * The loop variable is the key of the key-value pair
+
 ~~~
 >>> dct = {'a':1, 'b':2}
 >>> for key in dct:
@@ -40,6 +41,7 @@ b 2
 ~~~
 
 * many objects have methods which return alternative iterators
+
 ~~~
 >>> for pair in dct.items():
 ...     print(pair)
