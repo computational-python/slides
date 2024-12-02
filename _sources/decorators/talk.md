@@ -111,7 +111,7 @@ gives input variables
 ```
     @verbose2
     def hello2(name):
-        print "Hello %s!" % name
+        print(f"Hello {name}!")
 ```
 ```
     hello2('Dolly')
@@ -130,11 +130,11 @@ gives input variables
         def verbose3(func):
             def wrapper(*args, **kwargs):
                 if flag:
-                    print "before", func.__name__,
-                    print "with arguments", args, kwargs
+                    print("before", func.__name__)
+                    print("with arguments", args, kwargs)
                 result = func(*args, **kwargs)
                 if flag:
-                    print "after", func.__name__
+                    print("after", func.__name__)
                 return result
             return wrapper
         return verbose3
@@ -148,7 +148,7 @@ gives input variables
 ```
     @debug(False)
     def hello3(name):
-        print "Hello again %s!" % name
+        print(f"Hello again {name}!")
 
     hello3('Dolly')
     Hello again Dolly!
@@ -157,7 +157,7 @@ gives input variables
 ```
     @debug(True)
     def hello3(name):
-        print "Hello again %s!" % name
+        print("Hello again {name}!")
 
     hello3('Dolly')
     before hello3 with arguments ('Dolly',) {}

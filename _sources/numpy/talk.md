@@ -3,15 +3,13 @@
 </script>
 # Linear Algebra in Python
 
-## Olav Vahtras
-
 Computational Python
 
 ---
 
 layout: false
 
-### Linear Algebra in Python: NumPy
+## Linear Algebra in Python: NumPy
 
 * Libraries provided by ``numpy`` provide computational speeds close to compiled languages
 * Generally written in C

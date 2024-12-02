@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'decorators/talk';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Linear Algebra in Python" href="../numpy/talk.html" />
     <link rel="prev" title="Introduction to iterators" href="../iterators/talk.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,6 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../classes/talk.html">Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../iterators/talk.html">Introduction to iterators</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/talk.html">Linear Algebra in Python</a></li>
 </ul>
 
     </div>
@@ -502,7 +504,7 @@ document.write(`
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@verbose2</span>
     <span class="k">def</span> <span class="nf">hello2</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-        <span class="nb">print</span> <span class="s2">&quot;Hello </span><span class="si">%s</span><span class="s2">!&quot;</span> <span class="o">%</span> <span class="n">name</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    hello2(&#39;Dolly&#39;)
@@ -520,11 +522,11 @@ document.write(`
         <span class="k">def</span> <span class="nf">verbose3</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
             <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
                 <span class="k">if</span> <span class="n">flag</span><span class="p">:</span>
-                    <span class="nb">print</span> <span class="s2">&quot;before&quot;</span><span class="p">,</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
-                    <span class="nb">print</span> <span class="s2">&quot;with arguments&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;before&quot;</span><span class="p">,</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;with arguments&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">flag</span><span class="p">:</span>
-                    <span class="nb">print</span> <span class="s2">&quot;after&quot;</span><span class="p">,</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;after&quot;</span><span class="p">,</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">result</span>
             <span class="k">return</span> <span class="n">wrapper</span>
         <span class="k">return</span> <span class="n">verbose3</span>
@@ -537,7 +539,7 @@ document.write(`
 <h3>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    @debug(False)
     def hello3(name):
-        print &quot;Hello again %s!&quot; % name
+        print(f&quot;Hello again {name}!&quot;)
 
     hello3(&#39;Dolly&#39;)
     Hello again Dolly!
@@ -545,7 +547,7 @@ document.write(`
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    @debug(True)
     def hello3(name):
-        print &quot;Hello again %s!&quot; % name
+        print(&quot;Hello again {name}!&quot;)
 
     hello3(&#39;Dolly&#39;)
     before hello3 with arguments (&#39;Dolly&#39;,) {}
@@ -607,6 +609,15 @@ document.write(`
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Introduction to iterators</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../numpy/talk.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Linear Algebra in Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
