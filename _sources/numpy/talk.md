@@ -367,35 +367,6 @@ Note that for objects of ``ndarray`` type, multiplication means elementwise mult
 
 ---
 
-### Matrix-like objects
-
-A special class that behave like matrices, ``numpy.matrix``
-
-~~~
->>> m = numpy.matrix((1, 2, 3))
->>> print(m)
-[[1 2 3]]
->>> print(m.T)
-[[1]
- [2]
- [3]]
-
-~~~
-
-multiplication `*` means matrix multiplication 
-
-~~~
->>> print(m.T*m)
-[[1 2 3]
- [2 4 6]
- [3 6 9]]
->>> print(m*m.T)
-[[14]]
-
-~~~
-
----
-
 ### Vectorized functions
 
 * Any scalar function `f` can be vectorized
@@ -405,16 +376,22 @@ multiplication `*` means matrix multiplication
 
 ```
 
+* Note that this is a decorator
+
+~~~
+@numpy.vectorize
+def f(...):
+    ...
+~~~
+
 * Not always fast 
 
 ---
 
-### More linear algebra
 
-* Solve a linear  system of equations
+### Linear systems of equations
+
 $$Ax = b$$
-
---
 
 
 ```
@@ -424,43 +401,47 @@ $$Ax = b$$
 
 --
 
-* Determinant of a matrix
+### Determinant of a matrix
 
 $$det(A)$$
 
---
-
-
 ```
-    x = numpy.linalg.det(A)
+    numpy.linalg.det(A)
 
 ```
 
 ---
 
 
-* Inverse of a matrix 
+### Inverse of a matrix 
+
 $$A^{-1}$$
 
---
-
 ```
-    x = numpy.linalg.inverse(A)
+    numpy.linalg.inverse(A)
 
 ```
 
 --
 
-*  Eigenvalues  of a matrix
+### Eigenvalues  of a matrix
 
-$$Ax = x\lambda$$
-
---
+$$Ax_i = x_i\lambda_i$$
 
 ```
     λ, x = numpy.linalg.eig(A)
 
 ```
+
+* column `i` of `x` is the i:th eigenvector of \\(A\\)  corresponding to eigenvalue \\(\lambda_i\\)
+
+* in newer versions of numpy the return values can be retrieved with attributes
+
+~~~
+    result = numpy.linalg.eig(A)
+    λ = result.eigenvalues
+    x = result.eigenvectors
+~~~
 
 ---
 
