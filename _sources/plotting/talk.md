@@ -1,7 +1,5 @@
 # Introduction to matplotlib
 
-## Olav Vahtras
-
 Computational Python
 
 ---
@@ -129,8 +127,7 @@ for tl in ax2.get_yticklabels():
 --
 
 
-* Try some exercises at
+* Try some exercises at [scipy-lectures](http://scipy-lectures.github.io/intro/matplotlib/index.html#other-types-of-plots-examples-and-exercises)
 
-http://scipy-lectures.github.io/intro/matplotlib/matplotlib.html#other-types-of-plots-examples-and-exercises
       
 

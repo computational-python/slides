@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introduction to matplotlib &#8212; My sample book</title>
+    <title>Introduction to matplotlib &#8212; Lecture slides in Computational Python</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -58,9 +58,9 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'plotting/talk';</script>
-    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Linear Algebra in Python" href="../numpy/talk.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +122,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -140,14 +138,20 @@
 
   
 
-<a class="navbar-brand logo" href="../intro.html">
+<a class="navbar-brand logo" href="../index.html">
   
   
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/KTH_Logotyp_RGB_2013.png" class="logo__image only-light" alt="Lecture slides in Computational Python - Home"/>
+    <script>document.write(`<img src="../_static/KTH_Logotyp_RGB_2013.png" class="logo__image only-dark" alt="Lecture slides in Computational Python - Home"/>`);</script>
   
-    <p class="title logo__title">My sample book</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -166,12 +170,23 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
+                <a class="reference internal" href="../index.html">
                     Lecture slides for Computational Python
                 </a>
             </li>
         </ul>
-        
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/talk.html">Introduction to Python</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../git/talk.html">Version Control: git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/talk.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/talk.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../iterators/talk.html">Introduction to iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decorators/talk.html">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/talk.html">Linear Algebra in Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to matplotlib</a></li>
+</ul>
+
     </div>
 </nav></div>
     </div>
@@ -365,7 +380,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#olav-vahtras">Olav Vahtras</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-example">First example</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-absolute-minimum-you-need-to-know">The absolute minimum  you need to know</a></li>
@@ -391,12 +405,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-matplotlib">
 <h1>Introduction to matplotlib<a class="headerlink" href="#introduction-to-matplotlib" title="Link to this heading">#</a></h1>
-<section id="olav-vahtras">
-<h2>Olav Vahtras<a class="headerlink" href="#olav-vahtras" title="Link to this heading">#</a></h2>
 <p>Computational Python</p>
 <hr class="docutils" />
 <p>layout: false</p>
-</section>
 <section id="matplotlib">
 <h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -512,9 +523,8 @@ document.write(`
 –</p></li>
 <li><p>Go to the matplotlib gallery: <a class="reference external" href="http://matplotlib.org/gallery">http://matplotlib.org/gallery</a>
 –</p></li>
-<li><p>Try some exercises at</p></li>
+<li><p>Try some exercises at <a class="reference external" href="http://scipy-lectures.github.io/intro/matplotlib/index.html#other-types-of-plots-examples-and-exercises">scipy-lectures</a></p></li>
 </ul>
-<p><a class="reference external" href="http://scipy-lectures.github.io/intro/matplotlib/matplotlib.html#other-types-of-plots-examples-and-exercises">http://scipy-lectures.github.io/intro/matplotlib/matplotlib.html#other-types-of-plots-examples-and-exercises</a></p>
 </section>
 </section>
 </section>
@@ -549,6 +559,15 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../numpy/talk.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Linear Algebra in Python</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -565,7 +584,6 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#olav-vahtras">Olav Vahtras</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-example">First example</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-absolute-minimum-you-need-to-know">The absolute minimum  you need to know</a></li>
@@ -592,7 +610,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Olav Vahtras
 </p>
 
   </div>
