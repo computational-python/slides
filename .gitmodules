@@ -1,0 +1,3 @@
+[submodule "introduction"]
+	path = introduction
+	url = git@github.com:computational-python/introduction
