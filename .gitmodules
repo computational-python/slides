@@ -4,3 +4,6 @@
 [submodule "functions"]
 	path = functions
 	url = git@github.com:computational-python/functions
+[submodule "git"]
+	path = git
+	url = git@github.com:computational-python/git

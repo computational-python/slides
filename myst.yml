@@ -12,6 +12,7 @@ project:
     - file: README.md
     - file: introduction/talk.md
     - file: functions/talk.md
+    - file: git/talk.md
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
 site:
   template: book-theme
