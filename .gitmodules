@@ -7,3 +7,6 @@
 [submodule "git"]
 	path = git
 	url = git@github.com:computational-python/git
+[submodule "testing"]
+	path = testing
+	url = git@github.com:computational-python/testing
