@@ -10,3 +10,6 @@
 [submodule "testing"]
 	path = testing
 	url = git@github.com:computational-python/testing
+[submodule "classes"]
+	path = classes
+	url = git@github.com:computational-python/classes
